@@ -1,0 +1,26 @@
+{
+  "name": "nobo",
+  "version": "1.0.0",
+  "description": "Node Robot CLI Project for the book Automation with NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smks/nobo.git"
+  },
+  "keywords": [
+    "nobo",
+    "automation",
+    "cli",
+    "node",
+    "nodejs"
+  ],
+  "author": "Shaun Stone (smks)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/smks/nobo/issues"
+  },
+  "homepage": "https://github.com/smks/nobo#readme"
+}
