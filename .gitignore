@@ -38,3 +38,5 @@ jspm_packages
 
 .idea/*
 .idea/
+
+examples/004/my-repositories/*

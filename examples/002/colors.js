@@ -1,5 +1,7 @@
 #!/usr/bin/env node
-const colors = require('colors');
+
+/*jshint esversion: 6, node: true */
+"use strict";
 
 console.log('This is a success message'.green);
 console.log('This is a warning message'.yellow);
