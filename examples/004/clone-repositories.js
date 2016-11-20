@@ -3,6 +3,7 @@
 /*jshint esversion: 6, node: true */
 "use strict";
 
+require('colors');
 const shell = require('shelljs');
 
 const repositories = [
@@ -30,6 +31,8 @@ function cloneRepositories(repoContainerPath, repositories) {
         console.log(`cloning ${index + 1} of ${repoCount}`);
         shell.exec('git clone ' + repoUrl + ' --progress -b master');
     });
+
+    console.log('Completed cloning of repositories'.green);
 }
 
 cloneRepositories(path, repositories);

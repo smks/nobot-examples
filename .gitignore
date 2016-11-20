@@ -40,3 +40,4 @@ jspm_packages
 .idea/
 
 examples/004/my-repositories/*
+!examples/004/my-repositories/README.md
