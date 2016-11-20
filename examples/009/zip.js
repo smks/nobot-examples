@@ -13,21 +13,21 @@ const archive = archiver('zip', {
 });
 
 // listen for all archive data to be written
-output.on('close', function() {
+output.on('close', function () {
     console.log(' Total bytes: ' + archive.pointer());
     console.log('archiving has now finished.');
 });
 
 // good practice to catch this error explicitly
-archive.on('error', function(err) {
+archive.on('error', function (err) {
     throw err;
 });
 
 archive.pipe(output);
 
 // add files
-archive.append(fs.createReadStream('copy.txt'), { name: 'content.txt' });
-archive.append(fs.createReadStream('logo.jpg'), { name: 'nobo.jpg' });
+archive.append(fs.createReadStream('copy.txt'), {name: 'content.txt'});
+archive.append(fs.createReadStream('logo.jpg'), {name: 'nobo.jpg'});
 
 // finalize the archive (ie we are done appending files but streams have to finish yet)
 archive.finalize();
