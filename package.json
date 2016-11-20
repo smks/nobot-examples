@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/smks/nobo#readme",
   "dependencies": {
+    "archiver": "^1.2.0",
     "readline-sync": "^1.4.5",
     "shelljs": "^0.7.5"
   }

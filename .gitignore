@@ -41,3 +41,4 @@ jspm_packages
 
 examples/011/my-repositories/*
 !examples/011/my-repositories/README.md
+examples/009/files.zip

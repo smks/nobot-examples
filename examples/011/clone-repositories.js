@@ -15,17 +15,16 @@ const path = 'my-repositories';
 
 /**
  *
- * @param organisation string
- * @param repoContainerPath string
+ * @param path string
  * @param repositories array
  */
-function cloneRepositories(repoContainerPath, repositories) {
+function cloneRepositories(path, repositories) {
 
-    console.log(`Cloning repositories to: ${repoContainerPath}`);
+    console.log(`Cloning repositories to: ${path}`);
 
     const repoCount = repositories.length;
 
-    shell.cd(repoContainerPath);
+    shell.cd(path);
 
     repositories.forEach((repoUrl, index) => {
         console.log(`cloning ${index + 1} of ${repoCount}`);
