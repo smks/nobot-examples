@@ -39,5 +39,5 @@ jspm_packages
 .idea/*
 .idea/
 
-examples/004/my-repositories/*
-!examples/004/my-repositories/README.md
+examples/0011/my-repositories/*
+!examples/0011/my-repositories/README.md
