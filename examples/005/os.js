@@ -6,9 +6,9 @@
 const os = require('os');
 
 const homeDirectory = os.homedir();
-const osPlatform = os.platform();
-
 console.log('Your home directory is: ' + homeDirectory);
+
+const osPlatform = os.platform();
 console.log('The OS platform is: ' + osPlatform);
 
 const cpuCores = os.cpus();

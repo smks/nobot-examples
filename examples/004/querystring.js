@@ -18,12 +18,15 @@ console.log('Oh and... ' + parsedUrl.comment);
 /**
  * Build URL parameters
  */
-const apiHost = 'https://netflixy.api.com?'
-const myApiParams = {
-    key: 'SLJDFNG98P4NFJENEF',
-    user: 'shaunstone@myemail.com',
-    search: 'tv-shows',
-    categories: 'thriller, drama, comedy'
+
+//  https://jira.my-company.com/rest/api/latest/search?jql="assignee=shaun.stone&startAt=2&maxResults=2"
+
+const apiHost = 'https://jira.my-company.com/rest/api/latest/search?jql=';
+
+const jqlParams = {
+    'assignee': 'shaun.stone',
+    'startAt': 2,
+    'maxResults': 2
 };
-const apiUrl = apiHost + querystring.stringify(myApiParams);
-console.log('Making an API call to: ' + apiUrl);
+const apiUrl = `${apiHost}"${querystring.stringify(jqlParams)}"`;
+console.log('My JQL api call is: ' + apiUrl);

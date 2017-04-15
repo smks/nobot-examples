@@ -8,7 +8,7 @@ const util = require('util');
 console.log(`This process is pid ${process.pid}`);
 
 process.on('exit', (code) => {
-    console.log(`The process has now finished, existing with code: ${code}`);
+    console.log(`The process has now finished, exiting with code: ${code}`);
 });
 
 const startUsageOfCpu = process.cpuUsage();

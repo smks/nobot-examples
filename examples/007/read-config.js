@@ -3,14 +3,13 @@
 /*jshint esversion: 6, node: true */
 "use strict";
 
-const fs = require('fs');
+const readJson = require('./helpers/read-json');
+const configFile = __dirname + '/data/config.json';
 
-fs.readFile('config.json', {encoding: 'UTF-8'}, (err, data) => {
-    if (err) {
-        throw Error(err);
-    }
-    const configFile = JSON.parse(data);
-    console.log('The ID of the project is: ' + configFile.projectId);
-    console.log('The start date of the project is: ' + configFile.startDate);
-    console.log('The start date of the project is: ' + configFile.endDate);
+readJson(configFile).then(configFile => {
+	console.log('The ID of the project is: ' + configFile.projectId);
+	console.log('The start date of the project is: ' + configFile.startDate);
+	console.log('The end date of the project is: ' + configFile.endDate);
+}).catch((error) => {
+	console.log('Could not read the configuration file: ' + error);
 });

@@ -11,7 +11,7 @@ var server = dgram.createSocket('udp4');
 
 server.on('listening', function () {
     var address = server.address();
-    console.log('Welcome to Bunny Bombers Live Chat - Listening on ' + address.address + ":" + address.port);
+    console.log('Welcome to Bunny Trap Live Chat - Listening on ' + address.address + ":" + address.port);
 });
 
 /**
