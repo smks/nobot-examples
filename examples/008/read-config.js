@@ -4,6 +4,7 @@
 "use strict";
 
 const readJson = require('./helpers/read-json');
+
 const configFile = __dirname + '/data/config.json';
 
 readJson(configFile).then(configFile => {
