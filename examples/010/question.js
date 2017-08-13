@@ -1,18 +1,24 @@
 #!/usr/bin/env node
 
 /*jshint esversion: 6, node: true */
-"use strict";
+'use strict';
 
 // require dependencies
+const fs = require('fs');
 const readLineSync = require('readline-sync');
 
-const shouldRunGulp = readLineSync.question('Would you like to run gulp? (y|n) ', {
-    limit: /^y|n$/,
-    limitMessage: 'Please enter (y) or (n)'
+const projectName = readLineSync.question('What is the name of your project? ', {
+    limit: /^(?=\s*\S).*$/,
+    limitMessage: 'The project has to have a name, try again'
 });
 
-if (shouldRunGulp === 'y') {
-    console.log('running gulp');
+const isHappyToCreateDirectory = readLineSync.keyInYN(`You entered '${projectName}', create directory with this name? `);
+
+if (isCorrect) {
+    console.log(`creating a new project called ${projectName}`);
+    if (!fs.existsSync(projectName)){
+        fs.mkdirSync(projectName);
+    }
 } else {
-    console.log('not running gulp');
+    console.log('fine... not creating a project, get back to Reddit');
 }
