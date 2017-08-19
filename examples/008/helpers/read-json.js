@@ -1,8 +1,5 @@
 #! /usr/bin/env node
 
-/*jshint esversion: 6, node: true */
-"use strict";
-
 const fs = require('fs');
 
 const readJson = (file) => {

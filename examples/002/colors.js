@@ -1,33 +1,36 @@
 #!/usr/bin/env node
 
-/*jshint esversion: 6, node: true */
-"use strict";
-
 require('colors');
+
+const MESSAGE_TYPES = {
+	SUCCESS: 'success',
+	WARNING: 'warning',
+	ERROR: 'error'
+};
 
 console.log('This is a success message'.green);
 console.log('This is a warning message'.yellow);
 console.log('This is a error message'.red);
 
-log('This is a success message', 'success');
-log('This is a warning message', 'warning');
-log('This is a error message', 'error');
+log('This is a success message', MESSAGE_TYPES.SUCCESS);
+log('This is a warning message', MESSAGE_TYPES.WARNING);
+log('This is a error message', MESSAGE_TYPES.ERROR);
 
 // Log output with prefix
 const log = (message, type) => {
 	let colorMessage;
 	switch (type) {
-		case 'error':
-			colorMessage = '[ERROR] ' + message.red;
+		case MESSAGE_TYPES.ERROR:
+			colorMessage = `[ERROR] ${message.red}`;
 			break;
-		case 'warning':
-			colorMessage = '[WARNING] ' + message.yellow;
+		case MESSAGE_TYPES.WARNING:
+			colorMessage = `[WARNING] ${message.yellow}`;
 			break;
-		case 'success':
-			colorMessage = '[SUCCESS] ' + message.green;
+		case MESSAGE_TYPES.SUCCESS:
+			colorMessage = `[SUCCESS] ${message.green}`;
 			break;
 		default:
-			colorMessage = '[INFO] ' + message;
+			colorMessage = `[INFO] ${message}`;
 	}
 	console.log(colorMessage);
 }

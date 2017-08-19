@@ -14,7 +14,7 @@ const archive = archiver('zip', {
 
 // listen for all archive data to be written
 output.on('close', function () {
-    console.log(' Total bytes: ' + archive.pointer());
+    console.log(`Total bytes: ${archive.pointer()}`);
     console.log('archiving has now finished.');
 });
 
