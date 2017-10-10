@@ -24,3 +24,4 @@ shell.exec(`git checkout -b ${ticketNumber}`);
 
 // Let the user know it was created
 console.log(`Changed to new branch ${ticketNumber}`);
+

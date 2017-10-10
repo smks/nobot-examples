@@ -14,7 +14,7 @@ const projectName = readLineSync.question('What is the name of your project? ', 
 
 const isHappyToCreateDirectory = readLineSync.keyInYN(`You entered '${projectName}', create directory with this name? `);
 
-if (isCorrect) {
+if (isHappyToCreateDirectory) {
     console.log(`creating a new project called ${projectName}`);
     if (!fs.existsSync(projectName)){
         fs.mkdirSync(projectName);
