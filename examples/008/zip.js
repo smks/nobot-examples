@@ -25,7 +25,7 @@ archive.on('error', function (err) {
 
 archive.pipe(output);
 
-// add files
+// add files (read the copy.txt and logo.jpg and output with different names)
 archive.append(fs.createReadStream('copy.txt'), {name: 'content.txt'});
 archive.append(fs.createReadStream('logo.jpg'), {name: 'nobo.jpg'});
 
