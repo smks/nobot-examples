@@ -1,15 +1,15 @@
 #! /usr/bin/env node
 
-/*jshint esversion: 6, node: true */
-"use strict";
+/* jshint esversion: 6, node: true */
+
 
 const os = require('os');
 
 const homeDirectory = os.homedir();
-console.log('Your home directory is: ' + homeDirectory);
+console.log(`Your home directory is: ${homeDirectory}`);
 
 const osPlatform = os.platform();
-console.log('The OS platform is: ' + osPlatform);
+console.log(`The OS platform is: ${osPlatform}`);
 
 const cpuCores = os.cpus();
 const coreCount = cpuCores.length;

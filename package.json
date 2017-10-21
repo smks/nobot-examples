@@ -4,8 +4,8 @@
   "description": "Node Robot CLI Project for the book Automation with NodeJS",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/standard",
-    "codefix": "./node_modules/.bin/standard --fix"
+    "lint": "./node_modules/.bin/eslint examples/**/*.js",
+    "lintFix": "./node_modules/.bin/eslint examples/**/*.js --fix"
   },
   "repository": {
     "type": "git",
@@ -31,11 +31,13 @@
     "shelljs": "^0.7.5"
   },
   "devDependencies": {
-    "eslint": "^4.5.0",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "standard": "^10.0.3"
+    "eslint-plugin-react": "^7.4.0",
+    "eslint-plugin-standard": "^3.0.1"
   }
 }

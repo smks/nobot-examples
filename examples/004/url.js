@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
-/*jshint esversion: 6, node: true */
-"use strict";
+/* jshint esversion: 6, node: true */
+
 
 const url = require('url');
 
