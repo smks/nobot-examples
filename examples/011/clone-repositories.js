@@ -1,8 +1,5 @@
 #! /usr/bin/env node
 
-/* jshint esversion: 6, node: true */
-
-
 require('colors');
 const path = require('path');
 const shell = require('shelljs');
@@ -13,23 +10,23 @@ const repositories = [
   'https://github.com/smks/nobo-templates',
 ];
 
-function cloneRepositories(path = '', repositories = []) {
-  const repoCount = repositories.length;
+function cloneRepositories(repositoryPath, repositoryList) {
+  const repositoryCount = repositories.length;
 
-  if (repoCount === 0 || path === '') {
+  if (repositoryCount === 0 || repositoryPath === '') {
     return;
   }
 
   console.log(`Cloning repositories to: ${repositoriesDirectory}`.blue);
 
-  shell.cd(path);
+  shell.cd(repositoryPath);
 
-  repositories.forEach((repoUrl, index) => {
-    console.log(`Cloning ${index + 1} of ${repoCount}`.cyan);
-    shell.exec(`git clone ${repoUrl} --progress -b master`);
+  repositoryList.forEach((repositoryUrl, index) => {
+    console.log(`Cloning ${index + 1} of ${repositoryCount}`.cyan);
+    shell.exec(`git clone ${repositoryUrl} --progress -b master`);
   });
 
   console.log('Completed cloning of repositories'.green);
 }
 
-cloneRepositories(path, repositories);
+cloneRepositories(repositoriesDirectory, repositories);

@@ -1,8 +1,5 @@
 #! /usr/bin/env node
 
-/* jshint esversion: 6, node: true */
-
-
 const util = require('util');
 
 console.log(`This process is pid ${process.pid}`);
@@ -25,7 +22,7 @@ while (i < iterations) {
   arrayofThangs.push({
     number: i,
   });
-  i++;
+  i += 1;
 }
 
 const endUsageOfCpu = process.cpuUsage(startUsageOfCpu);

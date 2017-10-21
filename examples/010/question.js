@@ -1,8 +1,5 @@
 #!/usr/bin/env node
 
-/* jshint esversion: 6, node: true */
-
-
 // require dependencies
 const fs = require('fs');
 const readLineSync = require('readline-sync');

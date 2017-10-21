@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Poker</title>
+</head>
+<body>
+  <canvas id="game" width="480" height="320"></canvas>
+</body>
+<script>
+  (function() {
+    var canvas = document.getElementById("game");
+    var ctx = canvas.getContext("2d");
+    ctx.font = '48px Arial';
+    ctx.fillText('Poker'.toUpperCase(), 12, 60);
+  })();
+</script>
+</html>

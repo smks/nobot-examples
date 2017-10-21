@@ -12,12 +12,8 @@ console.log('This is a success message'.green);
 console.log('This is a warning message'.yellow);
 console.log('This is a error message'.red);
 
-log('This is a success message', MESSAGE_TYPES.SUCCESS);
-log('This is a warning message', MESSAGE_TYPES.WARNING);
-log('This is a error message', MESSAGE_TYPES.ERROR);
-
 // Log output with prefix
-const log = (message, type) => {
+function log(message, type) {
   let colorMessage;
   switch (type) {
     case MESSAGE_TYPES.ERROR:
@@ -33,6 +29,8 @@ const log = (message, type) => {
       colorMessage = `[INFO] ${message}`;
   }
   console.log(colorMessage);
-};
+}
 
-modules.exports = log;
+log('This is a success message', MESSAGE_TYPES.SUCCESS);
+log('This is a warning message', MESSAGE_TYPES.WARNING);
+log('This is a error message', MESSAGE_TYPES.ERROR);

@@ -1,8 +1,5 @@
 #! /usr/bin/env node
 
-/* jshint esversion: 6, node: true */
-
-
 require('colors');
 const shell = require('shelljs');
 const readLineSync = require('readline-sync');

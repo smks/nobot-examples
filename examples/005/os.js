@@ -1,8 +1,5 @@
 #! /usr/bin/env node
 
-/* jshint esversion: 6, node: true */
-
-
 const os = require('os');
 
 const homeDirectory = os.homedir();

@@ -1,14 +1,11 @@
 #! /usr/bin/env node
 
-/* jshint esversion: 6, node: true */
-
-
 const os = require('os');
-const exec = require('child_process').exec;
+const { exec } = require('child_process');
 
 const osPlatform = os.platform();
 const args = process.argv.slice(2);
-const url = args[0];
+const [url] = args;
 
 let command;
 

@@ -1,8 +1,5 @@
 #! /usr/bin/env node
 
-/* jshint esversion: 6, node: true */
-
-
 const fs = require('fs');
 
 const writeJson = (file, contents) => new Promise((resolve, reject) => {

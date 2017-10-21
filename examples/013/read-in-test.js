@@ -2,7 +2,7 @@ const readLineSync = require('readline-sync');
 
 const options = [];
 
-for (let i = 0; i < 35; i++) {
+for (let i = 0; i < 35; i += 1) {
   options.push(`option-${i + 1}`);
 }
 

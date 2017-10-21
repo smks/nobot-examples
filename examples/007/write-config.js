@@ -10,5 +10,5 @@ const configFile = path.join(__dirname, '/data/config-new.json');
 const jiraData = getJiraData();
 
 writeJson(configFile, jiraData)
-	.then(msg => console.log(msg))
-	.catch(err => throw err});
+  .then(msg => console.log(msg))
+  .catch((err) => { throw err; });
