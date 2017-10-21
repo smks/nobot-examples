@@ -25,7 +25,4 @@ if (isHappyToCreateDirectory) {
     .catch(err => console.error(err));
 } else {
   console.log('Aborted creating a new game');
-  process.exit(1);
 }
-
-console.log(`you chose ${options[index]}`);
