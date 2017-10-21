@@ -27,9 +27,12 @@
   "dependencies": {
     "archiver": "^1.2.0",
     "colors": "^1.1.2",
+    "csv": "^2.0.0",
+    "csv-parse": "^2.0.0",
     "fs-extra": "^4.0.2",
     "readline-sync": "^1.4.5",
-    "shelljs": "^0.7.5"
+    "shelljs": "^0.7.5",
+    "stream-transform": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^4.9.0",
