@@ -10,7 +10,7 @@ const repositories = [
   'https://github.com/smks/nobo-templates',
 ];
 
-function cloneRepositories(repositoryPath, repositoryList) {
+function cloneRepositories(repositoryPath = '', repositoryList = []) {
   const repositoryCount = repositories.length;
 
   if (repositoryCount === 0 || repositoryPath === '') {
