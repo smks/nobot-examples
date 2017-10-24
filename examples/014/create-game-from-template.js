@@ -1,6 +1,6 @@
 require('colors');
 const readLineSync = require('readline-sync');
-const fs = require('fs-extra');
+const fs = require('fs-extra'); // contains extra functionality (replaces 'fs')
 const path = require('path');
 
 // 1. Use a game template already built
@@ -9,8 +9,12 @@ const options = fs.readdirSync(directoryToFindTemplates);
 
 const index = readLineSync.keyInSelect(options);
 
+if (index === -1) {
+  process.exit(0);
+}
+
 // 2. Create a new project skin based on our template
-const projectName = readLineSync.question('What is the name of your game reskin? ', {
+const projectName = readLineSync.question('What is the name of your game? ', {
   limit: /^(?=\s*\S).*$/,
   limitMessage: 'The project has to have a name, try again',
 });
@@ -23,7 +27,7 @@ if (isHappyToCreateDirectory) {
   const src = path.join(directoryToFindTemplates, template);
   const destination = path.join(__dirname, projectName);
   fs.copy(src, destination)
-    .then(() => console.log(`Successfully created ${projectName}`.green))
+    .then(() => console.log(`Successfully created ${destination}`.green))
     .catch(err => console.error(err));
 } else {
   console.log('Aborted creating a new game');

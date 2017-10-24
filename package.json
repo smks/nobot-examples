@@ -26,6 +26,7 @@
   "homepage": "https://github.com/smks/nobo#readme",
   "dependencies": {
     "archiver": "^1.2.0",
+    "bitly": "^4.1.1",
     "colors": "^1.1.2",
     "csv": "^2.0.0",
     "csv-parse": "^2.0.0",
