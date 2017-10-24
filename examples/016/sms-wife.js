@@ -45,5 +45,5 @@ const smsMessage = {
 console.log(`sending message: ${smsMessage.body}`);
 
 // Send the text message.
-// client.messages.create(smsMessage)
-//   .then(message => console.log(message.sid));
+client.messages.create(smsMessage)
+  .then(message => console.log(message.sid));

@@ -6,6 +6,6 @@ for (let i = 0; i < 34; i += 1) {
   options.push(`option-${i + 1}`);
 }
 
-let index = readLineSync.keyInSelect(options);
+const index = readLineSync.keyInSelect(options);
 
 console.log(`you chose ${options[index]}`);
