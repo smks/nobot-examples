@@ -1,4 +1,4 @@
-## Nobo - Automating with NodeJS ##
+## Nobot - Automating with NodeJS ##
 
 **Node version**: 6.9.1
 
