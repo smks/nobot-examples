@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
-const readLineSync = require('readline-sync');
+const readline = require('readline');
 
 function createProjectDirectory(name) {
   console.log(`creating a new project called ${name}`);
@@ -10,15 +10,22 @@ function createProjectDirectory(name) {
   }
 }
 
-const projectName = readLineSync.question('What is the name of your project? ', {
-  limit: /^(?=\s*\S).*$/,
-  limitMessage: 'The project has to have a name, try again',
-});
+const interfaceInstance = readline.createInterface(
+  process.stdin,
+  process.stdout,
+  null,
+);
 
-const isHappyToCreateDirectory = readLineSync.keyInYN(`You entered '${projectName}', create directory with this name? `);
+const onProjectInput = (projectName) => {
+  interfaceInstance.close();
 
-if (isHappyToCreateDirectory) {
-  createProjectDirectory(projectName);
-} else {
-  console.log('fine... not creating a project, get back to Reddit');
-}
+  process.stdin.destroy();
+
+  if (projectName.trim() !== '') {
+    createProjectDirectory(projectName);
+  } else {
+    console.log('Please enter a project name');
+  }
+};
+
+interfaceInstance.question('What is the name of your project? ', onProjectInput);
