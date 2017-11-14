@@ -1,18 +1,19 @@
 {
-  "name": "nobo",
+  "name": "nobot",
   "version": "1.0.0",
   "description": "Node Robot CLI Project for the book Automation with NodeJS",
   "main": "index.js",
   "scripts": {
+    "gameServe": "http-server examples/020",
     "lint": "./node_modules/.bin/eslint examples/**/*.js",
     "lintFix": "./node_modules/.bin/eslint examples/**/*.js --fix"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/smks/nobo.git"
+    "url": "git+https://github.com/smks/nobot.git"
   },
   "keywords": [
-    "nobo",
+    "nobot",
     "automation",
     "cli",
     "node",
@@ -21,9 +22,9 @@
   "author": "Shaun Stone (smks)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/smks/nobo/issues"
+    "url": "https://github.com/smks/nobto/issues"
   },
-  "homepage": "https://github.com/smks/nobo#readme",
+  "homepage": "https://github.com/smks/nobot#readme",
   "dependencies": {
     "archiver": "^1.2.0",
     "bitly": "^4.1.1",
@@ -31,6 +32,8 @@
     "csv": "^2.0.0",
     "csv-parse": "^2.0.0",
     "fs-extra": "^4.0.2",
+    "http-server": "^0.10.0",
+    "minimist": "^1.2.0",
     "nodemailer": "^4.3.0",
     "readline-sync": "^1.4.5",
     "shelljs": "^0.7.5",

@@ -1,0 +1,9 @@
+{
+  "FROM_EMAIL": "Nobot Test <sender@example.com>",
+  "HOST": "mysmtp.domain.io",
+  "PORT": "2525",
+  "AUTH": {
+    "USERNAME": "ENTER_USERNAME",
+    "PASSWORD": "ENTER_PASSWORD"
+  }
+}
