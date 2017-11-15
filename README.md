@@ -4,7 +4,7 @@
 
 https://nodejs.org/docs/v6.9.1/api/
 
-![Node Bot](nobo.jpg)
+![Node Bot](nobot.jpg)
 
 1. Make sure you have Node installed https://nodejs.org/en
 2. Run `npm install`
