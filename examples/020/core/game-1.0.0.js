@@ -1,5 +1,6 @@
 /**
- * Game source code taken from Mozilla - https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript
+ * Game source code taken from Mozilla:
+ * https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript
  */
 (function boot(document) {
   
@@ -166,7 +167,7 @@
   }
 
   function loadConfig() {
-    fetch('config.json')
+    fetch('game.json')
       .then(response => response.json())
       .then(runGame);
   }

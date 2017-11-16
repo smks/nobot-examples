@@ -1,9 +1,12 @@
+require('colors');
 const argv = require('minimist')(process.argv.slice(2));
 const path = require('path');
 const readLineSync = require('readline-sync');
 const fs = require('fs-extra');
+const open = require('opn');
 
 let { gameName, gamePrimaryColor, gameSecondaryColor } = argv;
+const gameJsonFilename = 'game.json';
 
 if (gameName === undefined) {
   gameName = readLineSync.question('What is the name of the new reskin? ', {
@@ -26,11 +29,25 @@ if (gameSecondaryColor === undefined || gameSecondaryColor.indexOf('#') === -1) 
   });
 }
 
-console.log(`Creating a new reskin ${gameName} with skin color: Primary: ${gamePrimaryColor} Secondary: ${gameSecondaryColor}`);
+console.log(`Creating a new reskin '${gameName}' with skin color: Primary: '${gamePrimaryColor}' Secondary: '${gameSecondaryColor}'`);
 
-const src = path.join(__dirname, 'game-template');
-const destination = path.join(__dirname, gameName);
+const src = path.join(__dirname, 'releases', 'game-template');
+const destination = path.join(__dirname, 'releases', gameName);
+const configurationFile = path.resolve(destination, gameJsonFilename);
 
 fs.copy(src, destination)
-  .then(() => console.log(`Successfully created ${destination}`.green))
+  .then(() => {
+    console.log(`Successfully created ${destination}`.green);
+    return fs.readJson(configurationFile);
+  })
+  .then(obj => {
+    obj.primaryColor = gamePrimaryColor;
+    obj.secondaryColor = gameSecondaryColor;
+    return fs.writeJson(configurationFile, obj);
+  })
+  .then(() => {
+    console.log(`Updated configuration file ${configurationFile}`.green);
+    open(path.join(`http://localhost:8080`, 'releases', gameName, 'index.html'));
+  })
   .catch(err => console.error(err));
+
