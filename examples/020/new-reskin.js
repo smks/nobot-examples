@@ -33,7 +33,8 @@ console.log(`Creating a new reskin '${gameName}' with skin color: Primary: '${ga
 
 const src = path.join(__dirname, 'releases', 'game-template');
 const destination = path.join(__dirname, 'releases', gameName);
-const configurationFile = path.resolve(destination, gameJsonFilename);
+const configurationFile = path.join(destination, gameJsonFilename);
+const projectToOpen = path.join(`http://localhost:8080`, 'releases', gameName, 'index.html');
 
 fs.copy(src, destination)
   .then(() => {
@@ -47,7 +48,7 @@ fs.copy(src, destination)
   })
   .then(() => {
     console.log(`Updated configuration file ${configurationFile}`.green);
-    open(path.join(`http://localhost:8080`, 'releases', gameName, 'index.html'));
+    open(projectToOpen);
   })
   .catch(err => console.error(err));
 
