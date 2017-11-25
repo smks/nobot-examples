@@ -1,14 +1,8 @@
 #!/usr/bin/env node
 
 const path = require('path');
-const readJson = require('./helpers/read-json');
+const { projectId, startDate, endDate } = require('./data/config');
 
-const configFile = path.join(__dirname, '/data/config.json');
-
-readJson(configFile)
-  .then((config) => {
-    console.log(`The ID of the project is: ${config.projectId}`);
-    console.log(`The start date of the project is: ${config.startDate}`);
-    console.log(`The end date of the project is: ${config.endDate}`);
-  })
-  .catch(error => console.log(`Could not read the configuration file: ${error}`));
+console.log(`The ID of the project is: ${projectId}`);
+console.log(`The start date of the project is: ${startDate}`);
+console.log(`The end date of the project is: ${endDate}`);

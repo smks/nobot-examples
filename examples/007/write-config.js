@@ -6,9 +6,9 @@ const writeJson = require('./helpers/write-json');
 const getJiraData = require('./helpers/get-jira-data');
 
 // values
-const configFile = path.join(__dirname, '/data/config-new.json');
+const newConfigFile = path.join(__dirname, '/data/config-new.json');
 const jiraData = getJiraData();
 
-writeJson(configFile, jiraData)
+writeJson(newConfigFile, jiraData)
   .then(msg => console.log(msg))
-  .catch((err) => { throw err; });
+  .catch(err => { throw err; });
