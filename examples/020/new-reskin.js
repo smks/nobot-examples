@@ -15,19 +15,17 @@ if (gameName === undefined) {
   });
 }
 
-if (gamePrimaryColor === undefined || gamePrimaryColor.indexOf('#') === -1) {
-  gamePrimaryColor = readLineSync.question('Enter a Hex Code for the game primary color ', {
-    limit: /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/,
-    limitMessage: 'Enter a valid hex code: #efefef',
-  });
+const checkColorInput = (colorInput, colorType = 'primary') => {
+  if (colorInput === undefined || colorInput.indexOf('#') === -1) {
+    colorInput = readLineSync.question(`Enter a Hex Code for the game ${colorType} color `, {
+      limit: /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/,
+      limitMessage: 'Enter a valid hex code: #efefef',
+    });
+  }
 }
 
-if (gameSecondaryColor === undefined || gameSecondaryColor.indexOf('#') === -1) {
-  gameSecondaryColor = readLineSync.question('Enter a Hex Code for the game secondary color ', {
-    limit: /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/,
-    limitMessage: 'Enter a valid hex code: #efefef',
-  });
-}
+gamePrimaryColor = checkColorInput(gamePrimaryColor, 'primary');
+gameSecondaryColor = checkColorInput(gameSecondaryColor, 'secondary');
 
 console.log(`Creating a new reskin '${gameName}' with skin color: Primary: '${gamePrimaryColor}' Secondary: '${gameSecondaryColor}'`);
 
