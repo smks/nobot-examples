@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "gameServe": "http-server examples/020",
-    "lint": "./node_modules/.bin/eslint examples/**/*.js",
-    "lintFix": "./node_modules/.bin/eslint examples/**/*.js --fix"
+    "lint": "eslint examples/**/*.js",
+    "lintFix": "eslint examples/**/*.js --fix"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
   "author": "Shaun Stone (smks)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/smks/nobto/issues"
+    "url": "https://github.com/smks/nobot/issues"
   },
   "homepage": "https://github.com/smks/nobot#readme",
   "dependencies": {
