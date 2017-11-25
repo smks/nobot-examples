@@ -11,4 +11,4 @@ const jiraData = getJiraData();
 
 writeJson(newConfigFile, jiraData)
   .then(msg => console.log(msg))
-  .catch(err => { throw err; });
+  .catch((err) => { throw err; });

@@ -41,10 +41,11 @@ fs.copy(src, destination)
     console.log(`Successfully created ${destination}`.green);
     return fs.readJson(configurationFile);
   })
-  .then((obj) => {
-    obj.primaryColor = gamePrimaryColor;
-    obj.secondaryColor = gameSecondaryColor;
-    return fs.writeJson(configurationFile, obj);
+  .then((config) => {
+    const newConfig = config;
+    newConfig.primaryColor = gamePrimaryColor;
+    newConfig.secondaryColor = gameSecondaryColor;
+    return fs.writeJson(configurationFile, newConfig);
   })
   .then(() => {
     console.log(`Updated configuration file ${configurationFile}`.green);
