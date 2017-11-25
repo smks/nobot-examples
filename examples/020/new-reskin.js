@@ -34,14 +34,14 @@ console.log(`Creating a new reskin '${gameName}' with skin color: Primary: '${ga
 const src = path.join(__dirname, 'releases', 'game-template');
 const destination = path.join(__dirname, 'releases', gameName);
 const configurationFile = path.join(destination, gameJsonFilename);
-const projectToOpen = path.join(`http://localhost:8080`, 'releases', gameName, 'index.html');
+const projectToOpen = path.join('http://localhost:8080', 'releases', gameName, 'index.html');
 
 fs.copy(src, destination)
   .then(() => {
     console.log(`Successfully created ${destination}`.green);
     return fs.readJson(configurationFile);
   })
-  .then(obj => {
+  .then((obj) => {
     obj.primaryColor = gamePrimaryColor;
     obj.secondaryColor = gameSecondaryColor;
     return fs.writeJson(configurationFile, obj);

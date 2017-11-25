@@ -8,6 +8,4 @@ if (name === undefined) {
   process.exit(0);
 }
 
-console.log(name);
-
 console.log(`Good day to you ${name}`);

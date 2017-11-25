@@ -3,7 +3,6 @@
  * https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript
  */
 (function boot(document) {
-  
   function runGame(config) {
     const canvas = document.getElementById('game');
     canvas.style.backgroundColor = config.secondaryColor;
@@ -175,5 +174,4 @@
   document.addEventListener('DOMContentLoaded', () => {
     loadConfig();
   });
-
 }(document));

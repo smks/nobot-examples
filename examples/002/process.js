@@ -1,32 +1,29 @@
-#!/usr/bin/env node
-
-const util = require('util');
-
 console.log(`This process is pid ${process.pid}`);
 
 process.on('exit', (code) => {
   console.log(`The process has now finished, exiting with code: ${code}`);
 });
 
-const startUsageOfCpu = process.cpuUsage();
+process.stdout.write('Hello I am writing to standard output\n');
 
-// Rick Grime's array
-const arrayofThangs = [];
-let i = 0;
+process.stdout.write(`${process.cwd()}\n`);
 
-const iterations = 100;
+const myConsole = {
+  log: (msg) => {
+    process.stdout.write(`${msg}\n`);
+  },
+};
 
-while (i < iterations) {
-  // how much of the V8 engine memory is being used
-  console.log(util.inspect(process.memoryUsage()));
-  arrayofThangs.push({
-    number: i,
-  });
-  i += 1;
-}
+myConsole.log(`This script has been running for ${process.uptime()} seconds`);
 
-const endUsageOfCpu = process.cpuUsage(startUsageOfCpu);
+process.stdout.write('Type something then hit enter: \n');
 
-console.log(endUsageOfCpu);
+process.stdin.setEncoding('utf8');
 
-process.exit(0);
+process.stdin.on('readable', () => {
+  const chunk = process.stdin.read();
+  if (chunk !== null) {
+    process.stdout.write(`You wrote: ${chunk}`);
+    process.exit(0);
+  }
+});
