@@ -11,5 +11,7 @@ const jqlParams = {
   startAt: 2,
   maxResults: 2,
 };
+
 const apiUrl = `${apiHost}"${querystring.stringify(jqlParams)}"`;
+
 console.log(`My JQL api call is: ${apiUrl}`);

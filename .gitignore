@@ -47,5 +47,4 @@ examples/008/files.zip
 examples/012/nobo-delivery
 examples/014/poker-ten-stars
 
-examples/020/releases/*
 examples/020/releases/!game-template
