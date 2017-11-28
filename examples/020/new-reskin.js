@@ -22,7 +22,7 @@ const checkColorInput = (colorInput, colorType = 'primary') => {
       limitMessage: 'Enter a valid hex code: #efefef',
     });
   }
-}
+};
 
 gamePrimaryColor = checkColorInput(gamePrimaryColor, 'primary');
 gameSecondaryColor = checkColorInput(gameSecondaryColor, 'secondary');
