@@ -15,13 +15,17 @@ if (gameName === undefined) {
   });
 }
 
-const checkColorInput = (colorInput, colorType = 'primary') => {
-  if (colorInput === undefined || colorInput.indexOf('#') === -1) {
+const checkColorInput = (color, colorType = 'primary') => {
+  let colorInput;
+  if (color === undefined || color.indexOf('#') === -1) {
     colorInput = readLineSync.question(`Enter a Hex Code for the game ${colorType} color `, {
       limit: /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/,
       limitMessage: 'Enter a valid hex code: #efefef',
     });
+  } else {
+    colorInput = color;
   }
+  return colorInput;
 };
 
 gamePrimaryColor = checkColorInput(gamePrimaryColor, 'primary');

@@ -14,7 +14,7 @@ const fetchDataFromJira = (ticketNumber) => {
 
   const { startDate, endDate } = randomSelection(randomLiveDates);
 
-  // return in the format we need
+  // transform to the format we need
   return {
     projectId: Math.floor(Math.random() * 10000000),
     game: randomSelection(randomProjects),
