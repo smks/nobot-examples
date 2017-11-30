@@ -2,8 +2,8 @@
 
 require('colors');
 const shell = require('shelljs');
+const { repositories } = require('./config');
+const { delivery } = repositories;
 
-const repository = 'https://github.com/smks/nobo-delivery';
-
-console.log(`Cloning ${repository}`.cyan);
-shell.exec(`git clone ${repository} --progress -b master`);
+console.log(`Cloning ${delivery}`.cyan);
+shell.exec(`git clone ${delivery} --progress -b master`);

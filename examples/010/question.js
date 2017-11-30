@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const readline = require('readline');
+const { stdin, stdout } = require('process');
 
 function createProjectDirectory(name) {
   console.log(`creating a new project called ${name}`);
@@ -11,15 +12,15 @@ function createProjectDirectory(name) {
 }
 
 const interfaceInstance = readline.createInterface(
-  process.stdin,
-  process.stdout,
+  stdin,
+  stdout,
   null,
 );
 
 const onProjectInput = (projectName) => {
   interfaceInstance.close();
 
-  process.stdin.destroy();
+  stdin.destroy();
 
   if (projectName.trim() !== '') {
     createProjectDirectory(projectName);

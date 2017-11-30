@@ -5,7 +5,7 @@ const shell = require('shelljs');
 const readLineSync = require('readline-sync');
 
 // Changing directory
-shell.cd('nobo-delivery');
+shell.cd('nobot-delivery');
 
 // making sure we have the latest changes
 shell.exec('git pull origin master');
@@ -21,4 +21,3 @@ shell.exec(`git checkout -b ${ticketNumber}`);
 
 // Let the user know it was created
 console.log(`Changed to new branch ${ticketNumber}`);
-
