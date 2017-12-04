@@ -44,7 +44,8 @@ examples/011/my-repositories/*
 !examples/011/my-repositories/README.md
 examples/007/data/config-*
 examples/008/files.zip
-examples/012/nobo-delivery
+examples/012/nobot-delivery
+examples/013/.reminders
 examples/014/poker-ten-stars
 
 examples/020/releases/!game-template

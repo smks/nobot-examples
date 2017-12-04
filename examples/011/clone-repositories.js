@@ -3,12 +3,9 @@
 require('colors');
 const path = require('path');
 const shell = require('shelljs');
+const { repositories } = require('./config');
 
 const repositoriesDirectory = path.join(__dirname, 'my-repositories');
-const repositories = [
-  'https://github.com/smks/nobo-delivery',
-  'https://github.com/smks/nobo-templates',
-];
 
 function cloneRepositories(repositoryPath = '', repositoryList = []) {
   const repositoryCount = repositories.length;

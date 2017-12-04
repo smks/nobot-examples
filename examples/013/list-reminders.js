@@ -2,7 +2,7 @@ const fs = require('fs');
 const readLineSync = require('readline-sync');
 require('colors');
 
-const { reminders } = require('./reminders');
+const { reminders } = require('./.reminders');
 
 if (reminders.length === 0) {
   console.log('No reminders!'.green);
@@ -19,4 +19,4 @@ console.log(`you removed '${reminders[index]}'`.red);
 
 reminders.splice(index, 1);
 
-fs.writeFileSync('./reminders.json', JSON.stringify({ reminders }));
+fs.writeFileSync(`${__dirname}/.reminders.json`, JSON.stringify({ reminders }));

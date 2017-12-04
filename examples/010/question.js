@@ -5,17 +5,14 @@ const readline = require('readline');
 const { stdin, stdout } = require('process');
 
 function createProjectDirectory(name) {
-  console.log(`creating a new project called ${name}`);
-  if (!fs.existsSync(name)) {
-    fs.mkdirSync(name);
+  if (fs.existsSync(name) === false) {
+    console.log(`creating a new project called ${name}`);
+    return fs.mkdirSync(name);
   }
+  return console.log(`${name} exists already`);
 }
 
-const interfaceInstance = readline.createInterface(
-  stdin,
-  stdout,
-  null,
-);
+const interfaceInstance = readline.createInterface(stdin, stdout);
 
 const onProjectInput = (projectName) => {
   interfaceInstance.close();

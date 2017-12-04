@@ -4,11 +4,16 @@ require('colors');
 const shell = require('shelljs');
 const readLineSync = require('readline-sync');
 
+const baseBranch = 'master';
+
 // Changing directory
 shell.cd('nobot-delivery');
 
-// making sure we have the latest changes
-shell.exec('git pull origin master');
+// Checkout to base branch
+shell.exec(`git checkout ${baseBranch}`)
+
+// Making sure we have the latest changes
+shell.exec(`git pull origin ${baseBranch}`);
 
 // prompt for the ticket number
 const ticketNumber = readLineSync.question('What is the ticket ID? ', {
@@ -18,6 +23,3 @@ const ticketNumber = readLineSync.question('What is the ticket ID? ', {
 
 // Create a new branch
 shell.exec(`git checkout -b ${ticketNumber}`);
-
-// Let the user know it was created
-console.log(`Changed to new branch ${ticketNumber}`);
