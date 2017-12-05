@@ -35,8 +35,8 @@ const message = {
 
 transporter.sendMail(message, (err, info) => {
   if (err) {
-    console.log(`Error occurred. ${err.message}`);
-    return process.exit(1);
+    console.error(`Error occurred. ${err.message}`);
+    return process.exit(0);
   }
 
   return console.log('Message sent: %s', info.messageId);

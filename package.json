@@ -27,7 +27,7 @@
     "013_2": "node examples/013/list-reminders.js",
     "014": "node examples/014/create-game-from-template.js",
     "015": "node examples/015/send-email.js",
-    "016": "node examples/016/sms-wife.js",
+    "016": "node examples/016/sms-spouse.js",
     "017": "node examples/017/message-colleagues.js",
     "018": "node examples/018/shorten-url.js",
     "019": "node examples/019/minimist.js",
