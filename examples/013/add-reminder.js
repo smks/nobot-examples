@@ -20,4 +20,4 @@ reminders.push(reminder.replace(/' {2}'/g, ' ').trim());
 
 fs.writeFileSync(`${__dirname}/.reminders.json`, JSON.stringify({ reminders }));
 
-console.log(`✔ Added reminder`);
+console.log('✔ Added reminder');

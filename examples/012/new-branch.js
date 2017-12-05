@@ -10,7 +10,7 @@ const baseBranch = 'master';
 shell.cd('nobot-delivery');
 
 // Checkout to base branch
-shell.exec(`git checkout ${baseBranch}`)
+shell.exec(`git checkout ${baseBranch}`);
 
 // Making sure we have the latest changes
 shell.exec(`git pull origin ${baseBranch}`);
