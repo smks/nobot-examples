@@ -5,7 +5,7 @@ const fs = require('fs-extra'); // contains extra functionality (replaces 'fs')
 
 // 1. Use a game template already built
 const directoryToFindTemplates = path.join(__dirname, 'game-templates');
-const template = fs.readdirSync(directoryToFindTemplates);
+const templates = fs.readdirSync(directoryToFindTemplates);
 
 const index = readLineSync.keyInSelect(template);
 
@@ -23,7 +23,7 @@ const isHappyToCreateDirectory = readLineSync.keyInYN(`You entered '${projectNam
 
 // 3. If happy to create, copy the template to the new location
 if (isHappyToCreateDirectory) {
-  const template = template[index];
+  const template = templates[index];
   const src = path.join(directoryToFindTemplates, template);
   const destination = path.join(__dirname, projectName);
   fs.copy(src, destination)
