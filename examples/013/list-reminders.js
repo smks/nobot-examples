@@ -19,4 +19,4 @@ console.log(`you removed '${reminders[index]}'`.red);
 
 reminders.splice(index, 1);
 
-fs.writeFileSync(`${__dirname}/.reminders.json`, JSON.stringify({ reminders }));
+fs.writeFileSync(`${__dirname}/.reminders.json`, JSON.stringify({ reminders }, null, 4));

@@ -18,6 +18,6 @@ if (hasReminderAlready) {
 
 reminders.push(reminder.replace(/' {2}'/g, ' ').trim());
 
-fs.writeFileSync(`${__dirname}/.reminders.json`, JSON.stringify({ reminders }));
+fs.writeFileSync(`${__dirname}/.reminders.json`, JSON.stringify({ reminders }, null, 4));
 
 console.log('✔ Added reminder');

@@ -1,5 +1,6 @@
 {
   "FROM_EMAIL": "Nobot Test <sender@example.com>",
+  "TO_EMAIL": "Game Studios Team <gamestudios@games4u.com>",
   "HOST": "mysmtp.domain.io",
   "PORT": "2525",
   "AUTH": {

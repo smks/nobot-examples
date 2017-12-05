@@ -1,21 +1,20 @@
 require('colors');
-const config = require('./config.json');
+const config = require('./config');
 const nodemailer = require('nodemailer');
 
 const args = process.argv.slice(2);
-const REQUIRED_FIELDS_COUNT = 3;
+const REQUIRED_FIELDS_COUNT = 2;
 
 if (args.length !== REQUIRED_FIELDS_COUNT) {
-  console.log('Error! Please pass the following fields: {EMAIL_TO:employee@mycompany.com} {SUBJECT:"Where\'s my tea?"} {MESSAGE: "So yeah... where is it?"'.red);
-  console.log('Example: \'node send-email.js employee@mycompany.com "Where\'s my tea?" "So yeah... where is it?"\''.cyan);
+  console.log('Error! Please pass the following fields: {SUBJECT:"Where\'s my tea?"} {MESSAGE: "So yeah... where is it?"'.red);
+  console.log('Example: \'node send-email.js "Where\'s my tea?" "So yeah... where is it?"\''.cyan);
   process.exit(0);
 }
 
-const [to, subject, text] = args;
-const { HOST, PORT } = config;
+const [subject, text] = args;
+const { HOST, PORT, FROM_EMAIL, TO_EMAIL } = config;
 const { USERNAME, PASSWORD } = config.AUTH;
 
-// Create a SMTP transporter object
 const transporter = nodemailer.createTransport({
   host: HOST,
   port: PORT,
@@ -26,10 +25,9 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// Message object
 const message = {
-  from: config.FROM_EMAIL,
-  to: `<${to}>`,
+  from: FROM_EMAIL,
+  to: TO_EMAIL,
   subject,
   text,
   html: `<p>${text}</p>`,
