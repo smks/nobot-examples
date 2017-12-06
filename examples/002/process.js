@@ -9,7 +9,7 @@ process.stdout.write('Hello I am writing to standard output\n');
 process.stdout.write(`${process.cwd()}\n`);
 
 const myConsole = {
-  log: (msg) => {
+  log: msg => {
     process.stdout.write(`${msg}\n`);
   },
 };

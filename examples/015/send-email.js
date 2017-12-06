@@ -6,8 +6,10 @@ const args = process.argv.slice(2);
 const REQUIRED_FIELDS_COUNT = 2;
 
 if (args.length !== REQUIRED_FIELDS_COUNT) {
-  console.log('Error! Please pass the following fields: {SUBJECT:"Where\'s my tea?"} {MESSAGE: "So yeah... where is it?"'.red);
-  console.log('Example: \'node send-email.js "Where\'s my tea?" "So yeah... where is it?"\''.cyan);
+  console.log(
+    'Error! Missing two arguments:'.red,
+    'node send-email.js "Where\'s my tea?" "So yeah... where is it?"'.cyan
+  );
   process.exit(0);
 }
 
