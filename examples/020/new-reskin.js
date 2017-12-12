@@ -33,7 +33,7 @@ gameSecondaryColor = checkColorInput(gameSecondaryColor, 'secondary');
 
 console.log(`Creating a new reskin '${gameName}' with skin color: Primary: '${gamePrimaryColor}' Secondary: '${gameSecondaryColor}'`);
 
-const src = path.join(__dirname, 'releases', 'game-template');
+const src = path.join(__dirname, 'template');
 const destination = path.join(__dirname, 'releases', gameName);
 const configurationFile = path.join(destination, gameJsonFilename);
 const projectToOpen = path.join('http://localhost:8080', 'releases', gameName, 'index.html');
@@ -51,7 +51,14 @@ fs.copy(src, destination)
   })
   .then(() => {
     console.log(`Updated configuration file ${configurationFile}`.green);
-    open(projectToOpen);
+    checkIfOpenGame(projectToOpen);
   })
   .catch(err => console.error(err));
 
+
+const checkIfOpenGame = (projectToOpen) => {
+  isOpeningGame = readLineSync.keyInYN('Would you like to open the game? ');
+  if (isOpeningGame) {
+    open(projectToOpen);
+  }
+};
