@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { reminders } = require('./.reminders');
+const {reminders} = require('./.reminders');
 
 const args = process.argv.slice(2);
 const [reminder] = args;
@@ -9,7 +9,7 @@ if (reminder === undefined) {
   process.exit(0);
 }
 
-const hasReminderAlready = reminders.indexOf(reminder) > -1;
+const hasReminderAlready = reminders.includes(reminder);
 
 if (hasReminderAlready) {
   console.log(`✖ Already have the reminder '${reminder}' set`);
@@ -18,6 +18,6 @@ if (hasReminderAlready) {
 
 reminders.push(reminder.replace(/' {2}'/g, ' ').trim());
 
-fs.writeFileSync(`${__dirname}/.reminders.json`, JSON.stringify({ reminders }, null, 4));
+fs.writeFileSync(`${__dirname}/.reminders.json`, JSON.stringify({reminders}, null, 4));
 
 console.log('✔ Added reminder');

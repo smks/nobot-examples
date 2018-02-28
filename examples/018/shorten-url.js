@@ -5,7 +5,7 @@
  */
 
 const Bitly = require('bitly');
-const { BITLY_TOKEN } = require('./config');
+const {BITLY_TOKEN} = require('./config');
 
 const STATUS_CODE_OK = 200;
 const bitly = new Bitly(BITLY_TOKEN);
@@ -25,10 +25,11 @@ bitly.shorten(urlToShorten)
   .then(response => {
     const statusCode = response.status_code;
     const statusText = response.status_txt;
+
     if (statusCode !== STATUS_CODE_OK) {
       console.error('Something went wrong:', statusText);
     } else {
       console.log(`Shortened URL is: ${response.data.url}`);
     }
   })
-  .catch(error => console.log(error));
+  .catch(console.error);

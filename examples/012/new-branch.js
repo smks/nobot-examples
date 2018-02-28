@@ -18,7 +18,7 @@ shell.exec(`git pull origin ${baseBranch}`);
 // prompt for the ticket number
 const ticketNumber = readLineSync.question('What is the ticket ID? ', {
   limit: /^(?=\s*\S).*$/,
-  limitMessage: 'Please enter a ticket number (GOT-123)',
+  limitMessage: 'Please enter a ticket number (GOT-123)'
 });
 
 // Create a new branch

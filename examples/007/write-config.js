@@ -11,9 +11,9 @@ const [ticket] = args;
 // values
 const jiraTicket = ticket || 'GS-1224';
 const jiraData = getJiraData(jiraTicket);
-const { game } = jiraData;
+const {game} = jiraData;
 const newConfigFile = path.join(__dirname, 'data', `${game}.json`);
 
 writeJson(newConfigFile, jiraData)
-  .then(msg => console.log(msg))
-  .catch((err) => { throw err; });
+  .then(console.log)
+  .catch(err => {throw err;});

@@ -2,7 +2,7 @@ const fs = require('fs');
 const readLineSync = require('readline-sync');
 require('colors');
 
-const { reminders } = require('./.reminders');
+const {reminders} = require('./.reminders');
 
 if (reminders.length === 0) {
   console.log('No reminders!'.green);

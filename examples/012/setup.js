@@ -2,9 +2,9 @@
 
 require('colors');
 const shell = require('shelljs');
-const { repositories } = require('./config');
+const {repositories} = require('./config');
 
-const { delivery } = repositories;
+const {delivery} = repositories;
 
 console.log(`Cloning ${delivery}`.cyan);
 
