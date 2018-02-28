@@ -11,12 +11,12 @@ const configFiles = [
   path.join('examples', '015', 'config.example.json'),
 ];
 
-configFiles.map((configFileExample) => {
+configFiles.forEach(configFileExample => {
   const newConfig = configFileExample.replace('.example', '');
   if (fs.existsSync(newConfig)) {
     return;
   }
   return fs.copy(configFileExample, newConfig)
     .then(() => console.log(`Successfully created ${newConfig}`.green))
-    .catch(err => console.error(err));
+    .catch(console.error);
 });

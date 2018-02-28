@@ -1,7 +1,7 @@
 const argv = require('minimist')(process.argv.slice(2));
 const readLineSync = require('readline-sync');
 
-let { name, template, ticket } = argv;
+let {name, template, ticket} = argv;
 const templates = ['pick-of-three', 'tic-tac-toe', 'spin-the-wheel'];
 
 if (name === undefined) {
@@ -16,7 +16,7 @@ if (template === undefined || (templates.includes(template) === false)) {
 if (ticket === undefined || (ticket.indexOf('GS-'))) {
   ticket = readLineSync.question('Enter ticket number prefixed with \'GS-\' ', {
     limit: /^GS-/,
-    limitMessage: 'Enter a correct ticket ID prefixed with \'GS-\'',
+    limitMessage: 'Enter a correct ticket ID prefixed with \'GS-\''
   });
 }
 

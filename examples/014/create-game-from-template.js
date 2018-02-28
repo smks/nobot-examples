@@ -16,7 +16,7 @@ if (index === -1) {
 // 2. Create a new project skin based on our template
 const projectName = readLineSync.question('What is the name of your game? ', {
   limit: /^(?=\s*\S).*$/,
-  limitMessage: 'The project has to have a name, try again',
+  limitMessage: 'The project has to have a name, try again'
 });
 
 const isHappyToCreateDirectory = readLineSync.keyInYN(`You entered '${projectName}', create directory with this name? `);
@@ -28,7 +28,7 @@ if (isHappyToCreateDirectory) {
   const destination = path.join(__dirname, projectName);
   fs.copy(src, destination)
     .then(() => console.log(`Successfully created ${destination}`.green))
-    .catch(err => console.error(err));
+    .catch(console.error);
 } else {
   console.log('Aborted creating a new game');
 }

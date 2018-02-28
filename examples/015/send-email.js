@@ -14,8 +14,8 @@ if (args.length !== REQUIRED_FIELDS_COUNT) {
 }
 
 const [subject, text] = args;
-const { HOST, PORT, FROM_EMAIL, TO_EMAIL } = config;
-const { USERNAME, PASSWORD } = config.AUTH;
+const {HOST, PORT, FROM_EMAIL, TO_EMAIL} = config;
+const {USERNAME, PASSWORD} = config.AUTH;
 
 const transporter = nodemailer.createTransport({
   host: HOST,
@@ -23,8 +23,8 @@ const transporter = nodemailer.createTransport({
   secure: false,
   auth: {
     user: USERNAME,
-    pass: PASSWORD,
-  },
+    pass: PASSWORD
+  }
 });
 
 const message = {
@@ -32,7 +32,7 @@ const message = {
   to: TO_EMAIL,
   subject,
   text,
-  html: `<p>${text}</p>`,
+  html: `<p>${text}</p>`
 };
 
 transporter.sendMail(message, (err, info) => {

@@ -3,7 +3,7 @@
 const fs = require('fs');
 
 const writeJson = (file, contents) => new Promise((resolve, reject) => {
-  fs.writeFile(file, JSON.stringify(contents, null, 4), (err) => {
+  fs.writeFile(file, JSON.stringify(contents, null, 4), err => {
     if (err) {
       reject(err);
     }

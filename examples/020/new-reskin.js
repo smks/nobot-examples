@@ -5,22 +5,22 @@ const readLineSync = require('readline-sync');
 const fs = require('fs-extra');
 const open = require('opn');
 
-let { gameName, gamePrimaryColor, gameSecondaryColor } = argv;
+let {gameName, gamePrimaryColor, gameSecondaryColor} = argv;
 const gameJsonFilename = 'game.json';
 
 if (gameName === undefined) {
   gameName = readLineSync.question('What is the name of the new reskin? ', {
     limit: /^(?=\s*\S).*$/,
-    limitMessage: 'The project has to have a name, try again',
+    limitMessage: 'The project has to have a name, try again'
   });
 }
 
 const checkColorInput = (color, colorType = 'primary') => {
   let colorInput;
-  if (color === undefined || color.indexOf('#') === -1) {
+  if (color === undefined || color.includes('#')) {
     colorInput = readLineSync.question(`Enter a Hex Code for the game ${colorType} color `, {
       limit: /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/,
-      limitMessage: 'Enter a valid hex code: #efefef',
+      limitMessage: 'Enter a valid hex code: #efefef'
     });
   } else {
     colorInput = color;
@@ -43,7 +43,7 @@ fs.copy(src, destination)
     console.log(`Successfully created ${destination}`.green);
     return fs.readJson(configurationFile);
   })
-  .then((config) => {
+  .then(config => {
     const newConfig = config;
     newConfig.primaryColor = gamePrimaryColor;
     newConfig.secondaryColor = gameSecondaryColor;
@@ -53,11 +53,12 @@ fs.copy(src, destination)
     console.log(`Updated configuration file ${configurationFile}`.green);
     checkIfOpenGame(projectToOpen);
   })
-  .catch(err => console.error(err));
+  .catch(console.error);
 
 
-const checkIfOpenGame = (projectToOpen) => {
+const checkIfOpenGame = projectToOpen => {
   isOpeningGame = readLineSync.keyInYN('Would you like to open the game? ');
+  
   if (isOpeningGame) {
     open(projectToOpen);
   }

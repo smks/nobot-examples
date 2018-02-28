@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const readline = require('readline');
-const { stdin, stdout } = require('process');
+const {stdin, stdout} = require('process');
 
 function createProjectDirectory(name) {
   if (fs.existsSync(name) === false) {
@@ -14,7 +14,7 @@ function createProjectDirectory(name) {
 
 const interfaceInstance = readline.createInterface(stdin, stdout);
 
-const onProjectInput = (projectName) => {
+const onProjectInput = projectName => {
   interfaceInstance.close();
 
   stdin.destroy();

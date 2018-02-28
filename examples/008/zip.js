@@ -6,7 +6,7 @@ const archiver = require('archiver');
 // create a file to stream archive data to.
 const output = fs.createWriteStream('files.zip');
 const archive = archiver('zip', {
-  store: true, // Sets the compression method to STORE.
+  store: true // Sets the compression method to STORE.
 });
 
 // listen for all archive data to be written
@@ -23,8 +23,8 @@ archive.on('error', (err) => {
 archive.pipe(output);
 
 // add files (read the copy.txt and logo.jpg and output with different names)
-archive.append(fs.createReadStream('copy.txt'), { name: 'content.txt' });
-archive.append(fs.createReadStream('logo.jpg'), { name: 'nobot.jpg' });
+archive.append(fs.createReadStream('copy.txt'), {name: 'content.txt'});
+archive.append(fs.createReadStream('logo.jpg'), {name: 'nobot.jpg'});
 
 // finalize the archive (ie we are done appending files but streams have to finish yet)
 archive.finalize();
