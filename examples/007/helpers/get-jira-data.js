@@ -1,6 +1,6 @@
 const randomSelection = arr => arr[Math.floor(Math.random() * arr.length)];
 
-// Imagine this data being retrieved from JIRA and transformed
+// Imagine this data being retrieved from Jira and transformed
 const fetchDataFromJira = (ticketNumber) => {
   console.log(`fetching data from ${ticketNumber}...`);
 
