@@ -12,7 +12,7 @@ if (reminder === undefined) {
 const hasReminderAlready = reminders.indexOf(reminder) > -1;
 
 if (hasReminderAlready) {
-  console.log(`✖ Already have the reminder '${reminder}' set`);
+  console.log(`Doh! Already have the reminder '${reminder}' set`);
   process.exit(0);
 }
 
@@ -20,4 +20,4 @@ reminders.push(reminder.replace(/' {2}'/g, ' ').trim());
 
 fs.writeFileSync(`${__dirname}/.reminders.json`, JSON.stringify({ reminders }, null, 4));
 
-console.log('✔ Added reminder');
+console.log('Yes! Added reminder');
