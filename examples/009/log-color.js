@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 require('colors');
 const { log } = require('console');
 

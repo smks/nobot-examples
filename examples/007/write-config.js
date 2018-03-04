@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // helpers
 const path = require('path');
 const writeJson = require('./helpers/write-json');

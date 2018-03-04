@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const os = require('os');
 
 const homeDirectory = os.homedir();

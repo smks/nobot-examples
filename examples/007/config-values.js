@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const { projectId, startDate, endDate } = require('./data/config');
 
 console.log(`The ID of the project is: ${projectId}`);
