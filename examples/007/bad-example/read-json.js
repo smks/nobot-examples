@@ -10,5 +10,5 @@ const readJson = file => new Promise((resolve, reject) => {
 });
 
 // Usage
-readJson(`${__dirname}/../data/config.json`)
+readJson(`${__dirname}/../data/example-config.json`)
   .then(config => console.log(config.projectId));

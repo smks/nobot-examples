@@ -1,0 +1,26 @@
+{
+    "GS-1000": {
+        "projectId": 9500,
+        "game": "apple-orchards",
+        "startDate": "2018-09-01T00:00:00",
+        "endDate": "2018-09-20T00:00:00"
+    },
+    "GS-1005": {
+        "projectId": 9501,
+        "game": "blueberry-burst",
+        "startDate": "2018-10-01T00:00:00",
+        "endDate": "2018-10-04T00:00:00"
+    },
+    "GS-1007": {
+        "projectId": 9502,
+        "game": "cherry-chaser",
+        "startDate": "2018-11-01T00:00:00",
+        "endDate": "2018-11-12T00:00:00"
+    },
+    "GS-1020": {
+        "projectId": 9510,
+        "game": "damson-in-distress",
+        "startDate": "2018-12-01T00:00:00",
+        "endDate": "2018-12-25T00:00:00"
+    }
+}

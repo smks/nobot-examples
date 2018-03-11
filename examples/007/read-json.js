@@ -1,4 +1,4 @@
-const { projectId, startDate, endDate } = require('./data/config');
+const { projectId, startDate, endDate } = require('./data/example-config');
 
 console.log(`The ID of the project is: ${projectId}`);
 console.log(`The start date of the project is: ${startDate}`);
