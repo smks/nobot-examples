@@ -3,7 +3,7 @@ const url = require('url');
 const args = process.argv.slice(2);
 const [urlEntered] = args;
 
-const urlString = urlEntered || 'http://www.opencanvas.co.uk?myName=Shaun&myAge=27&comment=Yes+I+am+getting+old';
+const urlString = urlEntered || 'http://www.opencanvas.co.uk?myName=Shaun&myAge=28&comment=Wenger+Out';
 const {
   protocol, slashes, host, query, href,
 } = url.parse(urlString);
