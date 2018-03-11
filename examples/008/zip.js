@@ -1,6 +1,6 @@
-const fs = require('fs');
-var path = require('path');
 const archiver = require('archiver');
+const fs = require('fs');
+const path = require('path');
 
 // create a file to stream archive data to.
 const zipPath = path.join(__dirname, 'files.zip');

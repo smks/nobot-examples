@@ -3,7 +3,11 @@ const url = require('url');
 const args = process.argv.slice(2);
 const [urlEntered] = args;
 
-const urlString = urlEntered || 'http://www.opencanvas.co.uk?myName=Shaun&myAge=28&comment=Wenger+Out';
+if (urlEntered === undefined) {
+  console.log('Please pass a URL');
+  process.exit(1);
+}
+
 const {
   protocol, slashes, host, query, href,
 } = url.parse(urlString);
