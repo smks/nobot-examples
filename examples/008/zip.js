@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
-var path = require('path');
+const path = require('path');
 const archiver = require('archiver');
 
 // create a file to stream archive data to.
