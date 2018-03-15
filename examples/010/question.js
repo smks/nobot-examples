@@ -5,10 +5,10 @@ const readline = require('readline');
 const { stdin, stdout } = require('process');
 const path = require('path');
 
-const onProjectInput = projectName => {
+const onProjectInput = name => {
   interfaceInstance.close();
   stdin.destroy();
-  createProjectDirectory(projectName);
+  createProjectDirectory(name);
 };
 
 const createProjectDirectory = name => {
