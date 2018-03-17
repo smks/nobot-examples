@@ -9,8 +9,8 @@ if (urlEntered === undefined) {
 }
 
 const {
-  protocol, slashes, host, query, href,
-} = url.parse(urlString);
+  protocol, slashes, host, query, href
+} = url.parse(urlEntered);
 
 console.log(`Using protocol: ${protocol}`);
 console.log(`Using slashes: ${slashes}`);

@@ -7,7 +7,7 @@ const fs = require('fs-extra'); // contains extra functionality (replaces 'fs')
 const directoryToFindTemplates = path.join(__dirname, 'game-templates');
 const templates = fs.readdirSync(directoryToFindTemplates);
 
-const index = readLineSync.keyInSelect(template);
+const index = readLineSync.keyInSelect(templates);
 
 if (index === -1) {
   process.exit(0);
@@ -16,7 +16,7 @@ if (index === -1) {
 // 2. Create a new project skin based on our template
 const projectName = readLineSync.question('What is the name of your game? ', {
   limit: /^(?=\s*\S).*$/,
-  limitMessage: 'The project has to have a name, try again',
+  limitMessage: 'The project has to have a name, try again'
 });
 
 const isHappyToCreateDirectory = readLineSync.keyInYN(`You entered '${projectName}', create directory with this name? `);

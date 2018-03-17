@@ -11,7 +11,7 @@ const gameJsonFilename = 'game.json';
 if (gameName === undefined) {
   gameName = readLineSync.question('What is the name of the new reskin? ', {
     limit: /^(?=\s*\S).*$/,
-    limitMessage: 'The project has to have a name, try again',
+    limitMessage: 'The project has to have a name, try again'
   });
 }
 
@@ -20,7 +20,7 @@ const checkColorInput = (color, colorType = 'primary') => {
   if (color === undefined || color.indexOf('#') === -1) {
     colorInput = readLineSync.question(`Enter a Hex Code for the game ${colorType} color `, {
       limit: /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/,
-      limitMessage: 'Enter a valid hex code: #efefef',
+      limitMessage: 'Enter a valid hex code: #efefef'
     });
   } else {
     colorInput = color;
@@ -56,9 +56,9 @@ fs.copy(src, destination)
   .catch(err => console.error(err));
 
 
-const checkIfOpenGame = (projectToOpen) => {
-  isOpeningGame = readLineSync.keyInYN('Would you like to open the game? ');
+const checkIfOpenGame = (projectOpening) => {
+  const isOpeningGame = readLineSync.keyInYN('Would you like to open the game? ');
   if (isOpeningGame) {
-    open(projectToOpen);
+    open(projectOpening);
   }
 };

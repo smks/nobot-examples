@@ -12,7 +12,7 @@ if (!jiraData) {
   console.log(`JIRA ticket ${jiraTicket} not found`);
   process.exit(1);
 }
-const { game } = jiraData;
+
 const newConfigFile = path.join(__dirname, 'data', 'config.json');
 
 writeJson(newConfigFile, jiraData)

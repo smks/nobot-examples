@@ -16,7 +16,7 @@ if (template === undefined || (templates.includes(template) === false)) {
 if (ticket === undefined || (ticket.indexOf('GS-'))) {
   ticket = readLineSync.question('Enter ticket number prefixed with \'GS-\' ', {
     limit: /^GS-/,
-    limitMessage: 'Enter a correct ticket ID prefixed with \'GS-\'',
+    limitMessage: 'Enter a correct ticket ID prefixed with \'GS-\''
   });
 }
 
