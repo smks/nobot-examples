@@ -7,10 +7,11 @@ const { repositories } = require('./config');
 
 const repositoriesDirectory = path.join(__dirname, 'my-repositories');
 
-function cloneRepositories(repositoryPath = '', repositoryList = []) {
-  const repositoryCount = repositories.length;
+function cloneRepositories(repositoryPath, repositoryList = []) {
+  const repositoryCount = repositoryList.length;
 
-  if (repositoryCount === 0 || repositoryPath === '') {
+  if (!repositoryPath || repositoryCount === 0) {
+    console.log('Invalid path or repository list');
     return;
   }
 
