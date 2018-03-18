@@ -1,7 +1,7 @@
 
 {
-    "repositories": [
-        "https://github.com/smks/nobo-delivery",
-        "https://github.com/smks/nobo-templates"
-    ]
+  "repositories": [
+    "https://github.com/smks/nobot-repo-1",
+    "https://github.com/smks/nobot-repo-2"
+  ]
 }
