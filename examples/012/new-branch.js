@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 
-require('colors');
 const shell = require('shelljs');
 const readLineSync = require('readline-sync');
+const path = require('path');
 
 const baseBranch = 'master';
 
-// Changing directory
-shell.cd('nobot-delivery');
+// Changing into the repo's directory
+const repoPath = path.join(__dirname, 'nobot-cdn');
+shell.cd(repoPath);
 
 // Checkout to base branch
 shell.exec(`git checkout ${baseBranch}`);
@@ -17,8 +18,8 @@ shell.exec(`git pull origin ${baseBranch}`);
 
 // prompt for the ticket number
 const ticketNumber = readLineSync.question('What is the ticket ID? ', {
-  limit: /^(?=\s*\S).*$/,
-  limitMessage: 'Please enter a ticket number (GOT-123)',
+  limit: input => input.trim().length > 0,
+  limitMessage: 'Please enter a ticket number (e.g. GOT-123)',
 });
 
 // Create a new branch
