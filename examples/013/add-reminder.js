@@ -1,8 +1,9 @@
 const fs = require('fs');
+const { JSON_WHITESPACE } = require('./constants');
 const { reminders } = require('./.reminders');
 
 const args = process.argv.slice(2);
-const [reminder] = args;
+const reminder = args[0].trim();
 
 if (reminder === undefined) {
   console.log('Pass a reminder \'pick up rabbit\'');
@@ -16,8 +17,8 @@ if (hasReminderAlready) {
   process.exit(0);
 }
 
-reminders.push(reminder.replace(/' {2}'/g, ' ').trim());
+reminders.push(reminder);
 
-fs.writeFileSync(`${__dirname}/.reminders.json`, JSON.stringify({ reminders }, null, 4));
+fs.writeFileSync(`${__dirname}/.reminders.json`, JSON.stringify({ reminders }, null, JSON_WHITESPACE));
 
 console.log('Yes! Added reminder');
