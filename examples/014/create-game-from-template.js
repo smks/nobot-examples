@@ -7,7 +7,7 @@ const fs = require('fs-extra'); // contains extra functionality (replaces 'fs')
 const directoryToFindTemplates = path.join(__dirname, 'game-templates');
 const templates = fs.readdirSync(directoryToFindTemplates);
 
-const index = readLineSync.keyInSelect(template);
+const index = readLineSync.keyInSelect(templates);
 
 if (index === -1) {
   process.exit(0);
