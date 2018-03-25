@@ -7,13 +7,13 @@ const REQUIRED_FIELDS_COUNT = 2;
 
 if (args.length !== REQUIRED_FIELDS_COUNT) {
   console.log(
-    'Error! Missing two arguments:'.red,
-    'node send-email.js "Where\'s my tea?" "So yeah... where is it?"'.cyan
+    'Two arguments required: subject and body.'.red,
+    'E.g., node send-email.js "Where\'s my tea?" "So yeah... where is it?"'.cyan
   );
   process.exit(0);
 }
 
-const [subject, text] = args;
+const [subject, body] = args;
 const { HOST, PORT, FROM_EMAIL, TO_EMAIL } = config;
 const { USERNAME, PASSWORD } = config.AUTH;
 
@@ -31,8 +31,8 @@ const message = {
   from: FROM_EMAIL,
   to: TO_EMAIL,
   subject,
-  text,
-  html: `<p>${text}</p>`,
+  body,
+  html: `<p>${body}</p>`,
 };
 
 transporter.sendMail(message, (err, info) => {
