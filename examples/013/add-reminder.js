@@ -6,7 +6,7 @@ const args = process.argv.slice(2);
 const reminder = args[0].trim();
 
 if (reminder === undefined) {
-  console.log('Pass a reminder \'pick up rabbit\'');
+  console.log("Pass a reminder, e.g. 'pick up rabbit'");
   process.exit(0);
 }
 

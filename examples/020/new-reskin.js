@@ -2,7 +2,7 @@ require('colors');
 const argv = require('minimist')(process.argv.slice(2));
 const path = require('path');
 const readLineSync = require('readline-sync');
-const fs = require('fs-extra');
+const fse = require('fs-extra');
 const open = require('opn');
 
 let { gameName, gamePrimaryColor, gameSecondaryColor } = argv;
@@ -38,16 +38,16 @@ const destination = path.join(__dirname, 'releases', gameName);
 const configurationFile = path.join(destination, gameJsonFilename);
 const projectToOpen = path.join('http://localhost:8080', 'releases', gameName, 'index.html');
 
-fs.copy(src, destination)
+fse.copy(src, destination)
   .then(() => {
     console.log(`Successfully created ${destination}`.green);
-    return fs.readJson(configurationFile);
+    return fse.readJson(configurationFile);
   })
   .then((config) => {
     const newConfig = config;
     newConfig.primaryColor = gamePrimaryColor;
     newConfig.secondaryColor = gameSecondaryColor;
-    return fs.writeJson(configurationFile, newConfig);
+    return fse.writeJson(configurationFile, newConfig);
   })
   .then(() => {
     console.log(`Updated configuration file ${configurationFile}`.green);
