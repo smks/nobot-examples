@@ -16,7 +16,7 @@ if (osPlatform === 'win32') {
 }
 
 if (url === undefined) {
-  console.log('Please enter a URL e.g. "http://www.opencanvas.co.uk"');
+  console.log('Please enter a URL, e.g. "http://www.opencanvas.co.uk"');
   process.exit(1); // 1 indicates failure
 }
 

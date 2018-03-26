@@ -8,7 +8,7 @@ const REQUIRED_FIELDS_COUNT = 2;
 if (args.length !== REQUIRED_FIELDS_COUNT) {
   console.log(
     'Two arguments required: subject and body.'.red,
-    'E.g., node send-email.js "Where\'s my tea?" "So yeah... where is it?"'.cyan
+    'E.g. node send-email.js "Where\'s my tea?" "So yeah... where is it?"'.cyan
   );
   process.exit(0);
 }

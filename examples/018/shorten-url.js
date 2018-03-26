@@ -17,7 +17,7 @@ const expression = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}
 const regex = new RegExp(expression);
 
 if (urlToShorten === undefined || urlToShorten.match(regex) === null) {
-  console.log("Please pass a string in URL form e.g. 'http://www.opencanvas.co.uk'");
+  console.log("Please pass a string in URL form, e.g. 'http://www.opencanvas.co.uk'");
   process.exit(0);
 }
 
