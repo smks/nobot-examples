@@ -3,13 +3,8 @@ const readLineSync = require('readline-sync');
 const Twilio = require('twilio');
 
 /**
- * Twilio v3
- *
- * Before you can send an SMS from Node.js,
+ * Before you can send an SMS from Node.js using Twilio,
  * you'll need to sign up for a Twilio account
- * and purchase an SMS-capable phone number.
- * When you search for a number to buy, you'll
- * be able to see what types of communication it can power.
  */
 
 const {
@@ -46,5 +41,10 @@ const smsMessage = {
 console.log(`sending message: ${smsMessage.body}`);
 
 // Send the text message.
-client.messages.create(smsMessage)
-  .then(message => console.log(message.sid));
+client.messages.create(smsMessage, (err, message) => {
+  if (err) {
+    console.error('Error sending Twilio message', err);
+  } else {
+    console.log('SMS sent. Id:', message.sid);
+  }
+});
