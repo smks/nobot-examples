@@ -1,14 +1,12 @@
-#!/usr/bin/env node
-
+const archiver = require('archiver');
 const fs = require('fs');
 const path = require('path');
-const archiver = require('archiver');
 
 // create a file to stream archive data to.
 const zipPath = path.join(__dirname, 'files.zip');
 const output = fs.createWriteStream(zipPath);
 const archive = archiver('zip', {
-  store: true, // Sets the compression method to STORE.
+  store: true // Sets the compression method to STORE.
 });
 
 // listen for all archive data to be written

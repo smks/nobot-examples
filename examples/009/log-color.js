@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 require('colors');
 
 console.log('This is a success message'.green);

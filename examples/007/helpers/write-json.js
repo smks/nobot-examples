@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const fs = require('fs');
 
 const writeJson = (file, contents) => new Promise((resolve, reject) => {

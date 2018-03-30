@@ -13,7 +13,7 @@ const bitly = new Bitly(BITLY_TOKEN);
 const args = process.argv.slice(2);
 const [urlToShorten] = args;
 
-const expression = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;
+const expression = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/gi;
 const regex = new RegExp(expression);
 
 if (urlToShorten === undefined || urlToShorten.match(regex) === null) {
@@ -22,7 +22,7 @@ if (urlToShorten === undefined || urlToShorten.match(regex) === null) {
 }
 
 bitly.shorten(urlToShorten)
-  .then(response => {
+  .then((response) => {
     const statusCode = response.status_code;
     const statusText = response.status_txt;
     if (statusCode !== STATUS_CODE_OK) {

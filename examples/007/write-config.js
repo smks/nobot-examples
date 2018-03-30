@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const path = require('path');
 // helpers
 const writeJson = require('./helpers/write-json');
@@ -14,7 +12,7 @@ if (!jiraData) {
   console.log(`JIRA ticket ${jiraTicket} not found`);
   process.exit(1);
 }
-const { game } = jiraData;
+
 const newConfigFile = path.join(__dirname, 'data', 'config.json');
 
 writeJson(newConfigFile, jiraData)
