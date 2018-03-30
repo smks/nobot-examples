@@ -1,14 +1,16 @@
-#!/usr/bin/env node
-
 const url = require('url');
 
 const args = process.argv.slice(2);
 const [urlEntered] = args;
 
-const urlString = urlEntered || 'http://www.opencanvas.co.uk?myName=Shaun&myAge=27&comment=Yes+I+am+getting+old';
+if (urlEntered === undefined) {
+  console.log('Please pass a URL');
+  process.exit(1);
+}
+
 const {
-  protocol, slashes, host, query, href,
-} = url.parse(urlString);
+  protocol, slashes, host, query, href
+} = url.parse(urlEntered);
 
 console.log(`Using protocol: ${protocol}`);
 console.log(`Using slashes: ${slashes}`);

@@ -23,8 +23,8 @@ const transporter = nodemailer.createTransport({
   secure: false,
   auth: {
     user: USERNAME,
-    pass: PASSWORD,
-  },
+    pass: PASSWORD
+  }
 });
 
 const message = {
@@ -32,7 +32,7 @@ const message = {
   to: TO_EMAIL,
   subject,
   body,
-  html: `<p>${body}</p>`,
+  html: `<p>${body}</p>`
 };
 
 transporter.sendMail(message, (err, info) => {
