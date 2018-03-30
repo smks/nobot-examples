@@ -1,5 +1,6 @@
 {
-  "repositories": {
-    "delivery": "https://github.com/smks/nobot-repo-1"
+  "repository": {
+    "delivery": "https://github.com/smks/nobot-repo-1",
+    "baseBranch": "master"
   }
 }

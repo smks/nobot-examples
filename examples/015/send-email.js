@@ -14,9 +14,7 @@ if (args.length !== REQUIRED_FIELDS_COUNT) {
 }
 
 const [subject, body] = args;
-const {
-  HOST, PORT, FROM_EMAIL, TO_EMAIL
-} = config;
+const { HOST, PORT, FROM_EMAIL, TO_EMAIL } = config;
 const { USERNAME, PASSWORD } = config.AUTH;
 
 const transporter = nodemailer.createTransport({
