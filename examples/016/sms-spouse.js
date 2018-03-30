@@ -41,10 +41,10 @@ const smsMessage = {
 console.log(`sending message: ${smsMessage.body}`);
 
 // Send the text message.
-client.messages.create(smsMessage, (err, message) => {
-  if (err) {
-    console.error('Error sending Twilio message', err);
-  } else {
-    console.log('SMS sent. Id:', message.sid);
-  }
-});
+client.messages.create(smsMessage)
+  .then(({ sid }) => {
+    console.log('SMS sent. Id:', sid);
+  })
+  .catch(error => {
+    console.error('Error sending Twilio message', error);
+  });
