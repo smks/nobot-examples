@@ -26,7 +26,7 @@ const foodChoices = [
   '2 cook 2nite'
 ];
 
-const index = readLineSync.keyInSelect(foodChoices, 'What do you want for dinner?');
+const index = readLineSync.keyInSelect(foodChoices,'What would you like for dinner?');
 
 if (index === -1) {
   process.exit(0);
