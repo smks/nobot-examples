@@ -1,10 +1,12 @@
+require('colors');
+const path = require('path');
 const parse = require('csv-parse');
 const transform = require('stream-transform');
 const fs = require('fs');
-require('colors');
 
 const parser = parse({ delimiter: ',' });
-const input = fs.createReadStream('game-releases.csv');
+const gameReleasesPath = path.join(__dirname, 'game-releases.csv');
+const input = fs.createReadStream(gameReleasesPath);
 let iterator = 1;
 
 const processRecord = (record, callback) => {
@@ -18,7 +20,7 @@ const processRecord = (record, callback) => {
   }, 500);
 };
 
-const transformer = transform(processRecord, { parallel: 300 });
+const transformer = transform(processRecord);
 
 input
   .pipe(parser)
