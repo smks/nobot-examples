@@ -3,11 +3,13 @@
 const shell = require('shelljs');
 const readLineSync = require('readline-sync');
 const path = require('path');
+const { repositories } = require('./config');
 
-const baseBranch = 'master';
+const { delivery, baseBranch } = repositories;
+const repoName = delivery.substring(delivery.lastIndexOf('/'));
 
 // Changing into the repo's directory
-const repoPath = path.join(__dirname, 'nobot-cdn');
+const repoPath = path.join(__dirname, repoName);
 shell.cd(repoPath);
 
 // Checkout to base branch
