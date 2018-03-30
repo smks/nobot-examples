@@ -3,9 +3,9 @@
 const shell = require('shelljs');
 const readLineSync = require('readline-sync');
 const path = require('path');
-const { repositories } = require('./config');
+const { repository } = require('./config');
 
-const { delivery, baseBranch } = repositories;
+const { delivery, baseBranch } = repository;
 const repoName = delivery.substring(delivery.lastIndexOf('/'));
 
 // Changing into the repo's directory
