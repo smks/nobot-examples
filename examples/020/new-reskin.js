@@ -2,11 +2,10 @@ require('colors');
 const argv = require('minimist')(process.argv.slice(2));
 const path = require('path');
 const readLineSync = require('readline-sync');
-const fse = require('fs-extra');
+const fs = require('fs-extra');
 const open = require('opn');
 
 let { gameName, gamePrimaryColor, gameSecondaryColor } = argv;
-const gameJsonFilename = 'game.json';
 
 if (gameName === undefined) {
   gameName = readLineSync.question('What is the name of the new reskin? ', {
@@ -22,7 +21,11 @@ const confirmColorInput = (color, colorType = 'primary') => {
   }
   return readLineSync.question(`Enter a Hex Code for the game ${colorType} color `, {
     limit: hexColorRegex,
+<<<<<<< HEAD
     limitMessage: 'Enter a valid hex code: #efefef'
+=======
+    limitMessage: 'Enter a valid hex code, e.g. #efefef'
+>>>>>>> Refactor 014 and 020
   });
 };
 
@@ -33,23 +36,27 @@ console.log(`Creating a new reskin '${gameName}' with skin color: Primary: '${ga
 
 const src = path.join(__dirname, 'template');
 const destination = path.join(__dirname, 'releases', gameName);
-const configurationFile = path.join(destination, gameJsonFilename);
+const configurationFile = path.join(destination, 'game.json');
 const projectToOpen = path.join('http://localhost:8080', 'releases', gameName, 'index.html');
 
-fse.copy(src, destination)
+fs.copy(src, destination)
   .then(() => {
     console.log(`Successfully created ${destination}`.green);
-    return fse.readJson(configurationFile);
+    return fs.readJson(configurationFile);
   })
   .then((config) => {
     const newConfig = config;
     newConfig.primaryColor = gamePrimaryColor;
     newConfig.secondaryColor = gameSecondaryColor;
-    return fse.writeJson(configurationFile, newConfig);
+    return fs.writeJson(configurationFile, newConfig);
   })
   .then(() => {
     console.log(`Updated configuration file ${configurationFile}`.green);
     openGameIfAgreed(projectToOpen);
+<<<<<<< HEAD
+=======
+    process.exit(0);
+>>>>>>> Refactor 014 and 020
   })
   .catch(console.error);
 
