@@ -2,63 +2,61 @@ require('colors');
 const argv = require('minimist')(process.argv.slice(2));
 const path = require('path');
 const readLineSync = require('readline-sync');
-const fse = require('fs-extra');
+const fs = require('fs-extra');
 const open = require('opn');
 
 let { gameName, gamePrimaryColor, gameSecondaryColor } = argv;
-const gameJsonFilename = 'game.json';
 
 if (gameName === undefined) {
   gameName = readLineSync.question('What is the name of the new reskin? ', {
-    limit: /^(?=\s*\S).*$/,
+    limit: input => input.trim().length > 0,
     limitMessage: 'The project has to have a name, try again'
   });
 }
 
-const checkColorInput = (color, colorType = 'primary') => {
-  let colorInput;
-  if (color === undefined || color.indexOf('#') === -1) {
-    colorInput = readLineSync.question(`Enter a Hex Code for the game ${colorType} color `, {
-      limit: /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/,
-      limitMessage: 'Enter a valid hex code: #efefef'
-    });
-  } else {
-    colorInput = color;
+const confirmColorInput = (color, colorType = 'primary') => {
+  const hexColorRegex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
+  if (hexColorRegex.test(color)) {
+    return color;
   }
-  return colorInput;
+  return readLineSync.question(`Enter a Hex Code for the game ${colorType} color `, {
+    limit: hexColorRegex,
+    limitMessage: 'Enter a valid hex code, e.g. #efefef'
+  });
 };
 
-gamePrimaryColor = checkColorInput(gamePrimaryColor, 'primary');
-gameSecondaryColor = checkColorInput(gameSecondaryColor, 'secondary');
+gamePrimaryColor = confirmColorInput(gamePrimaryColor, 'primary');
+gameSecondaryColor = confirmColorInput(gameSecondaryColor, 'secondary');
 
 console.log(`Creating a new reskin '${gameName}' with skin color: Primary: '${gamePrimaryColor}' Secondary: '${gameSecondaryColor}'`);
 
 const src = path.join(__dirname, 'template');
 const destination = path.join(__dirname, 'releases', gameName);
-const configurationFile = path.join(destination, gameJsonFilename);
+const configurationFile = path.join(destination, 'game.json');
 const projectToOpen = path.join('http://localhost:8080', 'releases', gameName, 'index.html');
 
-fse.copy(src, destination)
+fs.copy(src, destination)
   .then(() => {
     console.log(`Successfully created ${destination}`.green);
-    return fse.readJson(configurationFile);
+    return fs.readJson(configurationFile);
   })
   .then((config) => {
     const newConfig = config;
     newConfig.primaryColor = gamePrimaryColor;
     newConfig.secondaryColor = gameSecondaryColor;
-    return fse.writeJson(configurationFile, newConfig);
+    return fs.writeJson(configurationFile, newConfig);
   })
   .then(() => {
     console.log(`Updated configuration file ${configurationFile}`.green);
-    checkIfOpenGame(projectToOpen);
+    openGameIfAgreed(projectToOpen);
+    process.exit(0);
   })
-  .catch(err => console.error(err));
+  .catch(console.error);
 
 
-const checkIfOpenGame = (projectOpening) => {
+const openGameIfAgreed = (fileToOpen) => {
   const isOpeningGame = readLineSync.keyInYN('Would you like to open the game? ');
   if (isOpeningGame) {
-    open(projectOpening);
+    open(fileToOpen);
   }
 };
