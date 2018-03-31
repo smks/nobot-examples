@@ -10,26 +10,24 @@ const gameJsonFilename = 'game.json';
 
 if (gameName === undefined) {
   gameName = readLineSync.question('What is the name of the new reskin? ', {
-    limit: /^(?=\s*\S).*$/,
+    limit: input => input.trim().length > 0,
     limitMessage: 'The project has to have a name, try again'
   });
 }
 
-const checkColorInput = (color, colorType = 'primary') => {
-  let colorInput;
-  if (color === undefined || color.indexOf('#') === -1) {
-    colorInput = readLineSync.question(`Enter a Hex Code for the game ${colorType} color `, {
-      limit: /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/,
-      limitMessage: 'Enter a valid hex code: #efefef'
-    });
-  } else {
-    colorInput = color;
+const confirmColorInput = (color, colorType = 'primary') => {
+  const hexColorRegex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
+  if (hexColorRegex.test(color)) {
+    return color;
   }
-  return colorInput;
+  return readLineSync.question(`Enter a Hex Code for the game ${colorType} color `, {
+    limit: hexColorRegex,
+    limitMessage: 'Enter a valid hex code: #efefef'
+  });
 };
 
-gamePrimaryColor = checkColorInput(gamePrimaryColor, 'primary');
-gameSecondaryColor = checkColorInput(gameSecondaryColor, 'secondary');
+gamePrimaryColor = confirmColorInput(gamePrimaryColor, 'primary');
+gameSecondaryColor = confirmColorInput(gameSecondaryColor, 'secondary');
 
 console.log(`Creating a new reskin '${gameName}' with skin color: Primary: '${gamePrimaryColor}' Secondary: '${gameSecondaryColor}'`);
 
@@ -51,14 +49,14 @@ fse.copy(src, destination)
   })
   .then(() => {
     console.log(`Updated configuration file ${configurationFile}`.green);
-    checkIfOpenGame(projectToOpen);
+    openGameIfAgreed(projectToOpen);
   })
-  .catch(err => console.error(err));
+  .catch(console.error);
 
 
-const checkIfOpenGame = (projectOpening) => {
+const openGameIfAgreed = (fileToOpen) => {
   const isOpeningGame = readLineSync.keyInYN('Would you like to open the game? ');
   if (isOpeningGame) {
-    open(projectOpening);
+    open(fileToOpen);
   }
 };
