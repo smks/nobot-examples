@@ -8,8 +8,8 @@ const args = process.argv.slice(2);
 const [url] = args;
 
 if (url === undefined) {
-  console.log('Please enter a URL e.g. "http://www.opencanvas.co.uk"');
-  process.exit(1);
+  console.error('Please enter a URL e.g. "http://www.opencanvas.co.uk"');
+  process.exit(0);
 }
 
 let command;
