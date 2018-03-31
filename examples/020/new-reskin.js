@@ -21,11 +21,7 @@ const confirmColorInput = (color, colorType = 'primary') => {
   }
   return readLineSync.question(`Enter a Hex Code for the game ${colorType} color `, {
     limit: hexColorRegex,
-<<<<<<< HEAD
-    limitMessage: 'Enter a valid hex code: #efefef'
-=======
     limitMessage: 'Enter a valid hex code, e.g. #efefef'
->>>>>>> Refactor 014 and 020
   });
 };
 
@@ -53,10 +49,7 @@ fs.copy(src, destination)
   .then(() => {
     console.log(`Updated configuration file ${configurationFile}`.green);
     openGameIfAgreed(projectToOpen);
-<<<<<<< HEAD
-=======
     process.exit(0);
->>>>>>> Refactor 014 and 020
   })
   .catch(console.error);
 
