@@ -5,8 +5,8 @@ const readLineSync = require('readline-sync');
 const fse = require('fs-extra');
 const open = require('opn');
 
+const GAME_JSON_FILENAME = 'game.json';
 let { gameName, gamePrimaryColor, gameSecondaryColor } = argv;
-const gameJsonFilename = 'game.json';
 
 if (gameName === undefined) {
   gameName = readLineSync.question('What is the name of the new reskin? ', {
@@ -33,7 +33,7 @@ console.log(`Creating a new reskin '${gameName}' with skin color: Primary: '${ga
 
 const src = path.join(__dirname, 'template');
 const destination = path.join(__dirname, 'releases', gameName);
-const configurationFile = path.join(destination, gameJsonFilename);
+const configurationFile = path.join(destination, GAME_JSON_FILENAME);
 const projectToOpen = path.join('http://localhost:8080', 'releases', gameName, 'index.html');
 
 fse.copy(src, destination)
