@@ -1,11 +1,11 @@
 require('colors');
 const readLineSync = require('readline-sync');
 const path = require('path');
-const fse = require('fs-extra');
+const fs = require('fs-extra');
 
 // 1. Use a game template already built
 const templatesDir = path.join(__dirname, 'game-templates');
-const templates = fse.readdirSync(templatesDir);
+const templates = fs.readdirSync(templatesDir);
 
 const index = readLineSync.keyInSelect(templates);
 
@@ -26,7 +26,7 @@ if (confirmCreateDirectory) {
   const template = templates[index];
   const src = path.join(templatesDir, template);
   const destination = path.join(__dirname, projectName);
-  fse.copy(src, destination)
+  fs.copy(src, destination)
     .then(() => console.log(`Successfully created ${destination}`.green))
     .catch(err => console.error(err));
 } else {
