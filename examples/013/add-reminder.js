@@ -3,12 +3,14 @@ const { JSON_WHITESPACE } = require('./constants');
 const { reminders } = require('./.reminders');
 
 const args = process.argv.slice(2);
-const reminder = args[0].trim();
+let reminder = args[0];
 
 if (reminder === undefined) {
   console.log("Pass a reminder, e.g. 'pick up rabbit'");
   process.exit(0);
 }
+
+reminder = reminder.trim();
 
 const hasReminderAlready = reminders.indexOf(reminder) > -1;
 

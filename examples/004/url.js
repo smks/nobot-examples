@@ -4,8 +4,8 @@ const args = process.argv.slice(2);
 const [urlEntered] = args;
 
 if (urlEntered === undefined) {
-  console.log('Please pass a URL');
-  process.exit(1);
+  console.error('Please pass a URL');
+  process.exit(0);
 }
 
 const {
