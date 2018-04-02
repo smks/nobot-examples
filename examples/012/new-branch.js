@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const shell = require('shelljs');
 const readLineSync = require('readline-sync');
 const path = require('path');
