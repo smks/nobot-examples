@@ -31,4 +31,4 @@ bitly.shorten(urlToShorten)
       console.log(`Shortened URL is: ${response.data.url}`);
     }
   })
-  .catch(error => console.log(error));
+  .catch(console.error);
