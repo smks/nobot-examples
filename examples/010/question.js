@@ -1,29 +1,29 @@
-#!/usr/bin/env node
-
 const fs = require('fs');
 const readline = require('readline');
 const { stdin, stdout } = require('process');
+const path = require('path');
 
-function createProjectDirectory(name) {
-  if (fs.existsSync(name) === false) {
-    console.log(`creating a new project called ${name}`);
-    return fs.mkdirSync(name);
+const onProjectInput = (name) => {
+  interfaceInstance.close();
+  stdin.destroy();
+  createProjectDirectory(name);
+};
+
+const createProjectDirectory = (enteredName) => {
+  const name = enteredName.trim();
+  if (name === '') {
+    console.log('Cannot create a project without a name');
+    return;
   }
-  return console.log(`${name} exists already`);
-}
+  const projectPath = path.join(__dirname, name);
+  if (fs.existsSync(projectPath)) {
+    console.log(`${name} already exists`);
+    return;
+  }
+  console.log(`creating a new project called ${name}`);
+  fs.mkdirSync(projectPath);
+};
 
 const interfaceInstance = readline.createInterface(stdin, stdout);
-
-const onProjectInput = (projectName) => {
-  interfaceInstance.close();
-
-  stdin.destroy();
-
-  if (projectName.trim() !== '') {
-    createProjectDirectory(projectName);
-  } else {
-    console.log('Please enter a project name');
-  }
-};
 
 interfaceInstance.question('What is the name of your project? ', onProjectInput);

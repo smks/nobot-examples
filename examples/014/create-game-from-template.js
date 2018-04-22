@@ -1,13 +1,13 @@
 require('colors');
 const readLineSync = require('readline-sync');
 const path = require('path');
-const fs = require('fs-extra'); // contains extra functionality (replaces 'fs')
+const fse = require('fs-extra');
 
 // 1. Use a game template already built
-const directoryToFindTemplates = path.join(__dirname, 'game-templates');
-const templates = fs.readdirSync(directoryToFindTemplates);
+const templatesDir = path.join(__dirname, 'game-templates');
+const templates = fse.readdirSync(templatesDir);
 
-const index = readLineSync.keyInSelect(template);
+const index = readLineSync.keyInSelect(templates);
 
 if (index === -1) {
   process.exit(0);
@@ -15,18 +15,18 @@ if (index === -1) {
 
 // 2. Create a new project skin based on our template
 const projectName = readLineSync.question('What is the name of your game? ', {
-  limit: /^(?=\s*\S).*$/,
-  limitMessage: 'The project has to have a name, try again',
+  limit: input => input.trim().length > 0,
+  limitMessage: 'The project has to have a name, try again'
 });
 
-const isHappyToCreateDirectory = readLineSync.keyInYN(`You entered '${projectName}', create directory with this name? `);
+const confirmCreateDirectory = readLineSync.keyInYN(`You entered '${projectName}', create directory with this name?`);
 
 // 3. If happy to create, copy the template to the new location
-if (isHappyToCreateDirectory) {
+if (confirmCreateDirectory) {
   const template = templates[index];
-  const src = path.join(directoryToFindTemplates, template);
+  const src = path.join(templatesDir, template);
   const destination = path.join(__dirname, projectName);
-  fs.copy(src, destination)
+  fse.copy(src, destination)
     .then(() => console.log(`Successfully created ${destination}`.green))
     .catch(err => console.error(err));
 } else {
