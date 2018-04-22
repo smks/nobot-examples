@@ -1,6 +1,8 @@
 const argv = require('minimist')(process.argv.slice(2));
 const readLineSync = require('readline-sync');
 
+const NO_CHOICE_MADE = -1;
+
 let { name, template, ticket } = argv;
 const templates = ['pick-of-three', 'tic-tac-toe', 'spin-the-wheel'];
 
@@ -13,7 +15,7 @@ if (name === undefined) {
 
 if (template === undefined || !templates.includes(template)) {
   const templateIndex = readLineSync.keyInSelect(templates, 'Choose your template');
-  if (templateIndex === -1) {
+  if (templateIndex === NO_CHOICE_MADE) {
     console.log('No template chosen. Stopping execution.');
     process.exit(0);
   }
