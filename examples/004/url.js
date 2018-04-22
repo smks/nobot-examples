@@ -4,7 +4,7 @@ const args = process.argv.slice(2);
 const [urlEntered] = args;
 
 if (urlEntered === undefined) {
-  console.error('Please pass a URL');
+  console.error('Please pass a URL e.g. https://www.google.co.uk/search?q=stranger+things');
   process.exit(0);
 }
 
