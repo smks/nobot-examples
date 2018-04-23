@@ -1,9 +1,11 @@
 require('colors');
 const path = require('path');
+const { stdout } = require('process');
 const parse = require('csv-parse');
 const transform = require('stream-transform');
 const fs = require('fs');
 
+const DELAY_TIME = 500;
 const parser = parse({ delimiter: ',' });
 const gameReleasesPath = path.join(__dirname, 'game-releases.csv');
 const input = fs.createReadStream(gameReleasesPath);
@@ -17,7 +19,7 @@ const processRecord = (record, callback) => {
   setTimeout(() => {
     // build game here
     callback(null, `${message}\n`);
-  }, 500);
+  }, DELAY_TIME);
 };
 
 const transformer = transform(processRecord);
@@ -25,4 +27,4 @@ const transformer = transform(processRecord);
 input
   .pipe(parser)
   .pipe(transformer)
-  .pipe(process.stdout);
+  .pipe(stdout);

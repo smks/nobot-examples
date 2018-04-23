@@ -2,6 +2,8 @@ const config = require('./config');
 const readLineSync = require('readline-sync');
 const Twilio = require('twilio');
 
+const NO_CHOICE_MADE = -1;
+
 /**
  * Before you can send an SMS from Node.js using Twilio,
  * you'll need to sign up for a Twilio account
@@ -28,7 +30,7 @@ const foodChoices = [
 
 const index = readLineSync.keyInSelect(foodChoices, 'What would you like for dinner?');
 
-if (index === -1) {
+if (index === NO_CHOICE_MADE) {
   process.exit(0);
 }
 
