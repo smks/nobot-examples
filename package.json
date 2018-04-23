@@ -1,7 +1,7 @@
 {
   "name": "nobot",
   "version": "1.0.0",
-  "description": "Node Robot CLI Project for the book Automation with NodeJS",
+  "description": "Node Robot CLI Project for the book Automation with Node JS",
   "main": "index.js",
   "scripts": {
     "gameServe": "http-server examples/020",
