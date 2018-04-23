@@ -23,10 +23,10 @@ if (template === undefined || !templates.includes(template)) {
 }
 
 if (ticket === undefined || ticket.indexOf('GS-')) {
-  ticket = 'GS-' + readLineSync.question('Enter ticket number: GS-', {
+  ticket = `GS-${readLineSync.question('Enter ticket number: GS-', {
     limit: input => input.trim().length > 0,
     limitMessage: 'Cannot continue without a ticket number'
-  });
+  })}`;
 }
 
 console.log(`Creating game '${name}' with template '${template}' on branch '${ticket}'`);

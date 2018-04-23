@@ -4,7 +4,7 @@
   "HOST": "mysmtp.domain.io",
   "PORT": "2525",
   "AUTH": {
-    "USERNAME": "ea600595143128",
-    "PASSWORD": "0f5c32112e16b1"
+    "USERNAME": "ENTER_USERNAME",
+    "PASSWORD": "ENTER_PASSWORD"
   }
 }
