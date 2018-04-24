@@ -1,4 +1,4 @@
-const fs = require('fs-extra');
+const fse = require('fs-extra');
 const path = require('path');
 require('colors');
 
@@ -13,10 +13,10 @@ const configFiles = [
 
 configFiles.map((configFileExample) => {
   const newConfig = configFileExample.replace('.example', '');
-  if (fs.existsSync(newConfig)) {
+  if (fse.existsSync(newConfig)) {
     return;
   }
-  return fs.copy(configFileExample, newConfig)
+  return fse.copy(configFileExample, newConfig)
     .then(() => console.log(`Successfully created ${newConfig}`.green))
     .catch(err => console.error(err));
 });
