@@ -2,11 +2,12 @@ const archiver = require('archiver');
 const fs = require('fs');
 const path = require('path');
 
+const ZLIB_BEST_COMPRESSION = 9;
 // create a file to stream archive data to.
 const zipPath = path.join(__dirname, 'files.zip');
 const output = fs.createWriteStream(zipPath);
 const archive = archiver('zip', {
-  zlib: { level: 9 }
+  zlib: { level: ZLIB_BEST_COMPRESSION }
 });
 
 // listen for all archive data to be written
