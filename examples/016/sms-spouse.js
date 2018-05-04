@@ -22,8 +22,8 @@ const foodChoices = [
   'spag bowl 2nite',
   'chinese takeaway 2nite',
   'pie n mash 2nite',
-  'charred leeks with anchovy dressing 2nite',
-  'confit of salmon, new potato & dill drizzle 2nite',
+  'mushroom risotto',
+  'pizza and fries',
   '2 recover from my lunch, no food plz!',
   '2 cook 2nite'
 ];

@@ -33,22 +33,22 @@ console.log(`Creating a new reskin '${gameName}' with skin color: Primary: '${ga
 
 const src = path.join(__dirname, 'template');
 const destination = path.join(__dirname, 'releases', gameName);
-const configurationFile = path.join(destination, GAME_JSON_FILENAME);
+const configurationFilePath = path.join(destination, GAME_JSON_FILENAME);
 const projectToOpen = path.join('http://localhost:8080', 'releases', gameName, 'index.html');
 
 fse.copy(src, destination)
   .then(() => {
     console.log(`Successfully created ${destination}`.green);
-    return fse.readJson(configurationFile);
+    return fse.readJson(configurationFilePath);
   })
   .then((config) => {
     const newConfig = config;
     newConfig.primaryColor = gamePrimaryColor;
     newConfig.secondaryColor = gameSecondaryColor;
-    return fse.writeJson(configurationFile, newConfig);
+    return fse.writeJson(configurationFilePath, newConfig);
   })
   .then(() => {
-    console.log(`Updated configuration file ${configurationFile}`.green);
+    console.log(`Updated configuration file ${configurationFilePath}`.green);
     openGameIfAgreed(projectToOpen);
   })
   .catch(console.error);

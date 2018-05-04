@@ -6,8 +6,9 @@ const transform = require('stream-transform');
 const fs = require('fs');
 
 const DELAY_TIME = 500;
+const CSV_FILE = 'game-releases.csv';
 const parser = parse({ delimiter: ',' });
-const gameReleasesPath = path.join(__dirname, 'game-releases.csv');
+const gameReleasesPath = path.join(__dirname, CSV_FILE);
 const input = fs.createReadStream(gameReleasesPath);
 let iterator = 1;
 

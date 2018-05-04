@@ -13,7 +13,7 @@ shell.cd(repoPath);
 // Checkout to base branch
 shell.exec(`git checkout ${baseBranch}`);
 
-// Making sure we have the latest changes
+// Making sure we have the latest changes from the remote origin
 shell.exec(`git pull origin ${baseBranch}`);
 
 // prompt for the ticket number
