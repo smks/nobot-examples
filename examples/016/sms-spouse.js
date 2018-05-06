@@ -47,6 +47,6 @@ client.messages.create(smsMessage)
   .then(({ sid }) => {
     console.log('SMS sent. Id:', sid);
   })
-  .catch(error => {
+  .catch((error) => {
     console.error('Error sending Twilio message', error);
   });
