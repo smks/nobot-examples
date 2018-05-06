@@ -1,4 +1,4 @@
-# Automating with Node JS - Nobot
+# Automating with Node JS - Nobot Examples
 
 **Minimum Node version**: 6.9.1
 
