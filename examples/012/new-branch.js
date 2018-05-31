@@ -16,10 +16,10 @@ shell.exec(`git checkout ${baseBranch}`);
 // Making sure we have the latest changes from the remote origin
 shell.exec(`git pull origin ${baseBranch}`);
 
-// prompt for the ticket number
+// prompt for the ticket ID
 const ticketId = readLineSync.question('What is the ticket ID? ', {
   limit: input => input.trim().length > 0,
-  limitMessage: 'Please enter a ticket number (e.g. GOT-123)'
+  limitMessage: 'Please enter a ticket ID (e.g. GOT-123)'
 });
 
 // Create a new branch
