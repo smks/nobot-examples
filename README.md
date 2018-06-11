@@ -1,8 +1,11 @@
 # Automating with Node JS - Nobot Examples
 
 Colour Print: http://amzn.eu/aA0cSnu
+
 Kindle: http://amzn.eu/dVSykv1
+
 Kobo: https://www.kobo.com/gb/en/ebook/automating-with-node-js
+
 Leanpub: https://leanpub.com/automatingwithnodejs
 
 **Minimum Node version**: 6.9.1
