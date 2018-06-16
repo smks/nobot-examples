@@ -1,4 +1,4 @@
-# Automating with Node JS - Nobot Examples
+# Automating with Node.js - Nobot Examples
 
 Colour Print: http://amzn.eu/aA0cSnu
 
