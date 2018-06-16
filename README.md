@@ -8,6 +8,8 @@ Kobo: https://www.kobo.com/gb/en/ebook/automating-with-node-js
 
 Leanpub: https://leanpub.com/automatingwithnodejs
 
+Google Play: https://play.google.com/store/books/details/Automating_with_Node_js?id=9QFgDwAAQBAJ
+
 **Minimum Node version**: 6.9.1
 
 1. Make sure you have Node installed https://nodejs.org/en
