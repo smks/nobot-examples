@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable consistent-return */
 const fse = require('fs-extra');
 const path = require('path');
 require('colors');

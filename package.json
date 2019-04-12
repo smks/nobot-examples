@@ -65,7 +65,7 @@
     "readline-sync": "^1.4.5",
     "shelljs": "^0.7.5",
     "stream-transform": "^1.0.0",
-    "twilio": "^3.10.0"
+    "twilio": "^3.30.0"
   },
   "devDependencies": {
     "eslint": "^4.9.0",
