@@ -60,7 +60,7 @@
     "fs-extra": "4.0.2",
     "http-server": "0.10.0",
     "minimist": "1.2.0",
-    "nodemailer": "4.4.0",
+    "nodemailer": "6.4.16",
     "opn": "5.1.0",
     "readline-sync": "1.4.5",
     "shelljs": "0.7.5",
