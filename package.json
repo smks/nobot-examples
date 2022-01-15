@@ -63,7 +63,7 @@
     "nodemailer": "4.4.0",
     "opn": "5.1.0",
     "readline-sync": "1.4.5",
-    "shelljs": "0.7.5",
+    "shelljs": "0.8.5",
     "stream-transform": "1.0.0",
     "twilio": "3.10.0"
   },
