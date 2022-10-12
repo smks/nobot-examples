@@ -1,23 +1,10 @@
-console.log(`This process is pid ${process.pid}`);
+/* eslint-disable linebreak-style */
+console.log(`This process is PID ${process.pid}`);
 
 process.on('exit', (code) => {
-  console.log(`The process has now finished, exiting with code: ${code}`);
+  console.log(`The process has now finished, exiting with CODE ${code}`);
 });
 
 process.stdout.write('Hello, I am writing to standard output\n');
-
-process.stdout.write(`Current working directory: ${process.cwd()}\n`);
-
-console.log(`This script has been running for ${process.uptime()} seconds`);
-
-process.stdout.write('Type something then hit enter: \n');
-
-process.stdin.setEncoding('utf8');
-
-process.stdin.on('readable', () => {
-  const chunk = process.stdin.read();
-  if (chunk !== null) {
-    process.stdout.write(`You wrote: ${chunk}`);
-    process.exit(0);
-  }
-});
+process.stdout.write(`The current working directory is ${process.cwd()}\n`);
+process.stdout.write(`This script has now run for ${process.uptime()} seconds!\n`);
