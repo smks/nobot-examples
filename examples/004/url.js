@@ -1,10 +1,11 @@
+/* eslint-disable linebreak-style */
+/* eslint-disable import/newline-after-import */
 const url = require('url');
-
 const args = process.argv.slice(2);
 const [urlEntered] = args;
 
 if (urlEntered === undefined) {
-  console.error('Please pass a URL e.g. https://www.google.co.uk/search?q=stranger+things');
+  console.error ('Please pass an URL, e.g., https://www.google.co.za/search?q=stranger+things');
   process.exit(0);
 }
 
